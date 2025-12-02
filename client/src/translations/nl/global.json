@@ -1,0 +1,14 @@
+{
+    "home": {
+        "description": "Bij Capgemini streven we naar een gezamenlijk doel: het ontketenen van menselijke energie door middel van technologie voor een inclusieve en duurzame toekomst.",
+        "learnmore": "Leer meer over ons",
+        "perks": "Bekijk onze perks"
+    },
+    "header": {
+        "home": "Thuispagina",
+        "employmentconditions": "Arbeidsvoorwaarden"
+    },
+    "footer": {
+        "rightsreserved": "Alle rechten voorbehouden."
+    }
+}

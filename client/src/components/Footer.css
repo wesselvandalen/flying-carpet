@@ -1,0 +1,79 @@
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 40px 0;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1800px;
+}
+
+.footer-top {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* Logo part (image plus link) */
+
+.logo {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.logo img {
+    width: 150px;
+}
+
+/* Footer links to different pages/sites. */
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+    list-style: none;
+    gap: 20px;
+}
+
+.footer-links li a {
+    width: 100%;
+    color: black;
+    text-decoration: none;
+}
+
+.footer-links li a:hover {
+    text-decoration: underline;
+}
+
+/* HR line that seperates the footer into different parts. */
+
+.line {
+    background-color: #000;
+    width: 100%;
+    margin: 20px 0;
+
+}
+
+/* Rights for the bottom part of the footer. */
+
+.rights-footer {
+    
+}
+
+.rights-footer-link {
+    color: #aeaeae;
+    text-decoration: none;
+}
+
+.rights-footer-link:hover {
+    text-decoration: underline;
+}
