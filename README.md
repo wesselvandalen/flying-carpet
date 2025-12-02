@@ -15,7 +15,7 @@ Beide zijn op de starten door in je terminal naar de desbetreffende folder te ga
 ERD diagram van de back-end:
 <img src="./erd.png" alt="ERD">
 
-De serverside is gebouwd met Java 21 en het Spring framework. Ook is er een connectie tussen de server side met een PostgreSQL database. Deze database is geinteregreerd met het Spring framework via een interface. 
+De serverside is gebouwd met Java 21 en het Spring framework. Ook is er een connectie tussen de server side met een H2-filegebaseerde database. Deze database is geinteregreerd met het Spring framework via een interface. 
 
 Er is gekozen voor een 4-lagen architectuur, bestaande uit:
 
@@ -23,5 +23,3 @@ Er is gekozen voor een 4-lagen architectuur, bestaande uit:
 - Application (Services)
 - Domain (Domeinmodel)
 - Data (Database)
-
-De PostgreSQL database bestaat uit PostgreSQL 16. 
