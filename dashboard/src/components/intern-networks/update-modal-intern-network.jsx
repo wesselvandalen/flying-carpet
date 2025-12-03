@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { handleLongNames, isEmpty } from "../../service/utils";
 import { deleteInternNetworkById, updateInternNetwork } from "../../service/intern-networks-service";
+import { focusAreas } from "../../config/config";
 
 export default function UpdateModalInternNetwork({ network, handleShowModal, showModal }) {
-    const [name, setName] = useState(network.name); 
+    const [name, setName] = useState(network.name);
     const [description, setDescription] = useState(network.description);
     const [image, setImage] = useState(network.image);
     const [focusArea, setFocusArea] = useState(network.focusArea);
@@ -11,7 +12,7 @@ export default function UpdateModalInternNetwork({ network, handleShowModal, sho
     const handleUpdate = async (e) => {
         e.preventDefault();
         const object = { "id": network.id, name, description, image, focusArea };
-        
+
         if (name === undefined || name.trim() === "") {
             object.name = network.name;
         }
@@ -69,7 +70,19 @@ export default function UpdateModalInternNetwork({ network, handleShowModal, sho
                             </div>
                             <div>
                                 <label htmlFor="focusarea" className="block mb-2 text-sm font-medium text-gray-900">Focus area</label>
-                                <input onChange={(e) => setFocusArea(e.target.value)} type="text" name="focusarea" id="focusarea" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder={network.focusArea} />
+                                <select
+                                    id="focusarea"
+                                    name="focusarea"
+                                    onChange={(e) => setFocusArea(e.target.value)}
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                          focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                    required
+                                >
+                                    <option value="">Select a focus area</option>
+                                    {focusAreas.map((n, index) => (
+                                        <option key={index} value={n}>{n}</option>
+                                    ))}
+                                </select>
                             </div>
                         </div>
                         <div className="flex items-center gap-2">

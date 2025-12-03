@@ -38,6 +38,17 @@ export default function CreateModalProfile({ showProfileCreateModal, handleCreat
       return;
     }
 
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // reset time to 00:00:00
+
+    const selectedDate = new Date(date);
+    selectedDate.setHours(0, 0, 0, 0);
+
+    if (selectedDate < today) {
+      triggerShowAlert("The date needs to be in the future.");
+      return;
+    }
+
     await createProfile(object);
     window.location.reload();
   };

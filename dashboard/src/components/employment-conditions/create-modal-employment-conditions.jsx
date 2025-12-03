@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { createEmploymentCondition } from "../../service/employment-conditions-service";
+import { employmentConditionCategories, employmentConditions, icons } from "../../config/config";
 
 export default function CreateModalEmploymentCondition({ showEmploymentConditionCreateModal, handleShowEmploymentConditionCreateModal, triggerShowAlert }) {
     const [title, setTitle] = useState("");
@@ -36,7 +37,19 @@ export default function CreateModalEmploymentCondition({ showEmploymentCondition
                         <div className="grid gap-4 mb-4 sm:grid-cols-2">
                             <div>
                                 <label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900">Title</label>
-                                <input onChange={(e) => setTitle(e.target.value)} type="text" name="title" id="title" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type title" required="" />
+                                <select
+                                    id="title"
+                                    name="title"
+                                    onChange={(e) => setTitle(e.target.value)}
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                                                       focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                    required
+                                >
+                                    <option value="">Select a title</option>
+                                    {employmentConditions.map((n, index) => (
+                                        <option key={index} value={n}>{n}</option>
+                                    ))}
+                                </select>
                             </div>
                             <div>
                                 <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900">Description</label>
@@ -44,11 +57,35 @@ export default function CreateModalEmploymentCondition({ showEmploymentCondition
                             </div>
                             <div>
                                 <label htmlFor="icon" className="block mb-2 text-sm font-medium text-gray-900">Icon</label>
-                                <input onChange={(e) => setIcon(e.target.value)} type="text" name="icon" id="icon" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type icon" required="" />
+                                <select
+                                    id="icon"
+                                    name="icon"
+                                    onChange={(e) => setIcon(e.target.value)}
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                                                       focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                    required
+                                >
+                                    <option value="">Select a icon</option>
+                                    {icons.map((n, index) => (
+                                        <option key={index} value={n}>{n}</option>
+                                    ))}
+                                </select>
                             </div>
                             <div>
                                 <label htmlFor="category" className="block mb-2 text-sm font-medium text-gray-900">Category</label>
-                                <input onChange={(e) => setCategory(e.target.value)} type="text" name="category" id="category" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type category" required="" />
+                                <select
+                                    id="category"
+                                    name="category"
+                                    onChange={(e) => setCategory(e.target.value)}
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                                                       focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                    required
+                                >
+                                    <option value="">Select a category</option>
+                                    {employmentConditionCategories.map((n, index) => (
+                                        <option key={index} value={n}>{n}</option>
+                                    ))}
+                                </select>
                             </div>
                         </div>
                         <button onClick={handleAdd} type="submit" className="text-white inline-flex items-center bg-[#1c64f2] cursor-pointer hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">

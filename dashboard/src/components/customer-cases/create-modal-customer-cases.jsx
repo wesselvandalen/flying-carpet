@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { createCustomerCase } from "../../service/customer-cases-service";
+import { companyNames, sectors } from "../../config/config";
 
 export default function CreateModalCustomerCases({ showCustomerCaseCreateModal, handleShowCustomerCaseCreateModal, triggerShowAlert }) {
     const [title, setTitle] = useState("");
@@ -48,12 +49,36 @@ export default function CreateModalCustomerCases({ showCustomerCaseCreateModal, 
                                 <input onChange={(e) => setImage(e.target.value)} type="text" name="image" id="image" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type image url" required="" />
                             </div>
                             <div>
-                                <label htmlFor="sector" className="block mb-2 text-sm font-medium text-gray-900">Sector</label>
-                                <input onChange={(e) => setSector(e.target.value)} type="text" name="sector" id="sector" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type sector" required="" />
+                                <label htmlFor="sector" className="block mb-2 text-sm font-medium text-gray-900">Name</label>
+                                <select
+                                    id="sector"
+                                    name="sector"
+                                    onChange={(e) => setSector(e.target.value)}
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                           focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                    required
+                                >
+                                    <option value="">Select a sector</option>
+                                    {sectors.map((n, index) => (
+                                        <option key={index} value={n}>{n}</option>
+                                    ))}
+                                </select>
                             </div>
                             <div>
-                                <label htmlFor="clientname" className="block mb-2 text-sm font-medium text-gray-900">Client name</label>
-                                <input onChange={(e) => setClientName(e.target.value)} type="text" name="clientname" id="clientname" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type client name" required="" />
+                                <label htmlFor="clientname" className="block mb-2 text-sm font-medium text-gray-900">Name</label>
+                                <select
+                                    id="clientname"
+                                    name="clientname"
+                                    onChange={(e) => setClientName(e.target.value)}
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                           focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                    required
+                                >
+                                    <option value="">Select a clientname</option>
+                                    {companyNames.map((n, index) => (
+                                        <option key={index} value={n}>{n}</option>
+                                    ))}
+                                </select>
                             </div>
                         </div>
                         <button onClick={handleAddCustomerCase} type="submit" className="text-white inline-flex items-center bg-[#1c64f2] cursor-pointer hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">

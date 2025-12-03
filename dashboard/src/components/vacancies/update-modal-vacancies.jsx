@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { handleLongNames } from "../../service/utils";
 import { deleteVacancyById, updateVacancy } from "../../service/vacancies-service";
+import { departments, employmentTypes, vacancieTitles } from "../../config/config";
 
 export default function UpdateModalVacancies({ vacancy, handleShowModal, showModal }) {
     const [title, setTitle] = useState(vacancy.title);
@@ -65,7 +66,19 @@ export default function UpdateModalVacancies({ vacancy, handleShowModal, showMod
                         <div className="grid gap-4 mb-4 sm:grid-cols-2">
                             <div>
                                 <label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900">Title</label>
-                                <input onChange={(e) => setTitle(e.target.value)} type="text" name="title" id="title" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder={vacancy.title} required="" />
+                                <select
+                                    id="title"
+                                    name="title"
+                                    onChange={(e) => setTitle(e.target.value)}
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                           focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                    required
+                                >
+                                    <option value="">Select a title</option>
+                                    {vacancieTitles.map((n, index) => (
+                                        <option key={index} value={n}>{n}</option>
+                                    ))}
+                                </select>
                             </div>
                             <div>
                                 <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900">Description</label>
@@ -81,11 +94,35 @@ export default function UpdateModalVacancies({ vacancy, handleShowModal, showMod
                             </div>
                             <div>
                                 <label htmlFor="employmenttype" className="block mb-2 text-sm font-medium text-gray-900">Employment type</label>
-                                <input onChange={(e) => setEmploymentType(e.target.value)} type="text" name="employmenttype" id="employmenttype" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder={vacancy.employmentType} required="" />
+                                <select
+                                    id="employmenttype"
+                                    name="employmenttype"
+                                    onChange={(e) => setEmploymentType(e.target.value)}
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                                                     focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                    required
+                                >
+                                    <option value="">Select a employment type</option>
+                                    {employmentTypes.map((n, index) => (
+                                        <option key={index} value={n}>{n}</option>
+                                    ))}
+                                </select>
                             </div>
                             <div>
                                 <label htmlFor="department" className="block mb-2 text-sm font-medium text-gray-900">Department</label>
-                                <input onChange={(e) => setDepartment(e.target.value)} type="text" name="department" id="department" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder={vacancy.department} required="" />
+                                <select
+                                    id="department"
+                                    name="department"
+                                    onChange={(e) => setDepartment(e.target.value)}
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                                                   focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                    required
+                                >
+                                    <option value="">Select a department</option>
+                                    {departments.map((n, index) => (
+                                        <option key={index} value={n}>{n}</option>
+                                    ))}
+                                </select>
                             </div>
                             <div>
                                 <label htmlFor="location" className="block mb-2 text-sm font-medium text-gray-900">Location</label>

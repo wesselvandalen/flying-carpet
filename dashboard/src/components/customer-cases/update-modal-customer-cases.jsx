@@ -68,12 +68,36 @@ export default function UpdateModalCustomerCases({ customerCase, handleShowModal
                                 <input onChange={(e) => setImage(e.target.value)} type="text" name="image" id="image" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder={customerCase.image} required="" />
                             </div>
                             <div>
-                                <label htmlFor="sector" className="block mb-2 text-sm font-medium text-gray-900">Sector</label>
-                                <input onChange={(e) => setSector(e.target.value)} type="text" name="sector" id="sector" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder={customerCase.sector} required="" />
+                                <label htmlFor="sector" className="block mb-2 text-sm font-medium text-gray-900">Name</label>
+                                <select
+                                    id="sector"
+                                    name="sector"
+                                    onChange={(e) => setSector(e.target.value)}
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                                                      focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                    required
+                                >
+                                    <option value="">Select a sector</option>
+                                    {sectors.map((n, index) => (
+                                        <option key={index} value={n}>{n}</option>
+                                    ))}
+                                </select>
                             </div>
                             <div>
-                                <label htmlFor="clientname" className="block mb-2 text-sm font-medium text-gray-900">Client name</label>
-                                <input onChange={(e) => setClientName(e.target.value)} type="text" name="clientname" id="clientname" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder={customerCase.clientName} required="" />
+                                <label htmlFor="clientname" className="block mb-2 text-sm font-medium text-gray-900">Name</label>
+                                <select
+                                    id="clientname"
+                                    name="clientname"
+                                    onChange={(e) => setClientName(e.target.value)}
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                                                       focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                    required
+                                >
+                                    <option value="">Select a clientname</option>
+                                    {companyNames.map((n, index) => (
+                                        <option key={index} value={n}>{n}</option>
+                                    ))}
+                                </select>
                             </div>
                         </div>
                         <div className="flex items-center gap-2">

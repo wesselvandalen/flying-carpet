@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { createInternNetwork } from "../../service/intern-networks-service";
+import { focusAreas } from "../../config/config";
 
 export default function CreateModalInternNetwork({ showInternNetworkCreateModal, handleShowInternNetworkCreateModal, triggerShowAlert }) {
     const [name, setName] = useState("");
@@ -13,6 +14,7 @@ export default function CreateModalInternNetwork({ showInternNetworkCreateModal,
             triggerShowAlert("You must at least fill in the name.");
             return;
         }
+
         const object = { name, description, image, focusArea };
         await createInternNetwork(object);
         window.location.reload();
@@ -27,27 +29,39 @@ export default function CreateModalInternNetwork({ showInternNetworkCreateModal,
                             Create new intern network
                         </h3>
                         <button onClick={handleShowInternNetworkCreateModal} type="button" className="text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg cursor-pointer text-sm p-1.5 ml-auto inline-flex items-center"
-            >
-              ✕
+                        >
+                            ✕
                         </button>
                     </div>
                     <form action="#">
                         <div className="grid gap-4 mb-4 sm:grid-cols-2">
                             <div>
                                 <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900">Name</label>
-                                <input onChange={(e) => setName(e.target.value)} type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type name" required/>
+                                <input onChange={(e) => setName(e.target.value)} type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type name" required />
                             </div>
                             <div>
                                 <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900">Description</label>
-                                <input onChange={(e) => setDescription(e.target.value)} type="text" name="description" id="description" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type description" required/>
+                                <input onChange={(e) => setDescription(e.target.value)} type="text" name="description" id="description" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type description" required />
                             </div>
                             <div>
                                 <label htmlFor="image" className="block mb-2 text-sm font-medium text-gray-900">Image</label>
-                                <input onChange={(e) => setImage(e.target.value)} type="text" name="image" id="image" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type image url" required/>
+                                <input onChange={(e) => setImage(e.target.value)} type="text" name="image" id="image" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type image url" required />
                             </div>
                             <div>
                                 <label htmlFor="focusarea" className="block mb-2 text-sm font-medium text-gray-900">Focus area</label>
-                                <input onChange={(e) => setFocusArea(e.target.value)} type="text" name="focusarea" id="focusarea" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type focus area" required/>
+                                <select
+                                    id="focusarea"
+                                    name="focusarea"
+                                    onChange={(e) => setFocusArea(e.target.value)}
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+               focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                    required
+                                >
+                                    <option value="">Select a focus area</option>
+                                    {focusAreas.map((n, index) => (
+                                        <option key={index} value={n}>{n}</option>
+                                    ))}
+                                </select>
                             </div>
                         </div>
                         <button onClick={handleAdd} type="submit" className="text-white inline-flex items-center bg-[#1c64f2] cursor-pointer hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">

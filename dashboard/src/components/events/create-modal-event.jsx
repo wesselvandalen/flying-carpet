@@ -15,6 +15,17 @@ export default function CreateModalEvent({ showEventCreateModal, handleShowEvent
             return;
         }
 
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // reset time to 00:00:00
+
+        const selectedDate = new Date(date);
+        selectedDate.setHours(0, 0, 0, 0);
+
+        if (selectedDate < today) {
+            triggerShowAlert("The date needs to be in the future.");
+            return;
+        }
+
         const object = { title, description, date, location, image };
         await createEvent(object);
         window.location.reload();

@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { createVacancy } from "../../service/vacancies-service";
+import { departments, employmentTypes, vacancieTitles } from "../../config/config";
 
 export default function CreateModalVacancy({ showVacancyCreateModal, handleShowVacancyCreateModal, triggerShowAlert }) {
     const [title, setTitle] = useState("");
@@ -17,6 +18,17 @@ export default function CreateModalVacancy({ showVacancyCreateModal, handleShowV
             return;
         }
 
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // reset time to 00:00:00
+
+        const selectedDate = new Date(postedDate);
+        selectedDate.setHours(0, 0, 0, 0);
+
+        if (selectedDate < today) {
+            triggerShowAlert("The date needs to be in the future.");
+            return;
+        }
+
         const object = { title, description, image, postedDate, employmentType, department, location };
         await createVacancy(object);
         window.location.reload();
@@ -31,39 +43,75 @@ export default function CreateModalVacancy({ showVacancyCreateModal, handleShowV
                             Create new vacancy
                         </h3>
                         <button onClick={handleShowVacancyCreateModal} type="button" className="text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg cursor-pointer text-sm p-1.5 ml-auto inline-flex items-center"
-            >
-              ✕
+                        >
+                            ✕
                         </button>
                     </div>
                     <form action="#">
                         <div className="grid gap-4 mb-4 sm:grid-cols-2">
                             <div>
                                 <label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900">Title</label>
-                                <input onChange={(e) => setTitle(e.target.value)} type="text" name="title" id="title" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type title" required=""/>
+                                <select
+                                    id="title"
+                                    name="title"
+                                    onChange={(e) => setTitle(e.target.value)}
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                           focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                    required
+                                >
+                                    <option value="">Select a title</option>
+                                    {vacancieTitles.map((n, index) => (
+                                        <option key={index} value={n}>{n}</option>
+                                    ))}
+                                </select>
                             </div>
                             <div>
                                 <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900">Description</label>
-                                <input onChange={(e) => setDescription(e.target.value)} type="text" name="description" id="description" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type description" required=""/>
+                                <input onChange={(e) => setDescription(e.target.value)} type="text" name="description" id="description" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type description" required="" />
                             </div>
                             <div>
                                 <label htmlFor="image" className="block mb-2 text-sm font-medium text-gray-900">Image</label>
-                                <input onChange={(e) => setImage(e.target.value)} type="text" name="image" id="image" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type image" required=""/>
+                                <input onChange={(e) => setImage(e.target.value)} type="text" name="image" id="image" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type image" required="" />
                             </div>
                             <div>
                                 <label htmlFor="posteddate" className="block mb-2 text-sm font-medium text-gray-900">Posted date</label>
-                                <input onChange={(e) => setPostedDate(e.target.value)} type="date" name="posteddate" id="posteddate" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type posted date" required=""/>
+                                <input onChange={(e) => setPostedDate(e.target.value)} type="date" name="posteddate" id="posteddate" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type posted date" required="" />
                             </div>
                             <div>
                                 <label htmlFor="employmenttype" className="block mb-2 text-sm font-medium text-gray-900">Employment type</label>
-                                <input onChange={(e) => setEmploymentType(e.target.value)} type="text" name="employmenttype" id="employmenttype" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type employment type" required=""/>
+                                <select
+                                    id="employmenttype"
+                                    name="employmenttype"
+                                    onChange={(e) => setEmploymentType(e.target.value)}
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                           focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                    required
+                                >
+                                    <option value="">Select a employment type</option>
+                                    {employmentTypes.map((n, index) => (
+                                        <option key={index} value={n}>{n}</option>
+                                    ))}
+                                </select>
                             </div>
                             <div>
                                 <label htmlFor="department" className="block mb-2 text-sm font-medium text-gray-900">Department</label>
-                                <input onChange={(e) => setDepartment(e.target.value)} type="text" name="department" id="department" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type department" required=""/>
+                                <select
+                                    id="department"
+                                    name="department"
+                                    onChange={(e) => setDepartment(e.target.value)}
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                           focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                    required
+                                >
+                                    <option value="">Select a department</option>
+                                    {departments.map((n, index) => (
+                                        <option key={index} value={n}>{n}</option>
+                                    ))}
+                                </select>
                             </div>
                             <div>
                                 <label htmlFor="location" className="block mb-2 text-sm font-medium text-gray-900">Location</label>
-                                <input onChange={(e) => setLocation(e.target.value)} type="text" name="location" id="location" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type location" required=""/>
+                                <input onChange={(e) => setLocation(e.target.value)} type="text" name="location" id="location" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type location" required="" />
                             </div>
                         </div>
                         <button onClick={handleAdd} type="submit" className="text-white inline-flex items-center bg-[#1c64f2] cursor-pointer hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
