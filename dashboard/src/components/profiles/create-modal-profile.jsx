@@ -2,7 +2,7 @@ import { useState } from "react";
 import MultiSelectDropdown from "../multi-select-dropdown";
 import { createProfile } from "../../service/profile-service";
 
-export default function CreateModalProfile({ showProfileCreateModal, handleCreateModalPopUp, triggerShowAlert, vacancyList, eventList, internNetworkList, employmentConditionList, customerCaseList }) {
+export default function CreateModalProfile({ showProfileCreateModal, handleCreateModalPopUp, triggerShowAlert, vacancyList, eventList, internNetworkList, employmentConditionList, customerCaseList, employeeStoryList }) {
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
   const [date, setDate] = useState(new Date());
@@ -11,6 +11,7 @@ export default function CreateModalProfile({ showProfileCreateModal, handleCreat
   const [internNetworks, setInternNetworks] = useState([]);
   const [employmentConditions, setEmploymentConditions] = useState([]);
   const [customerCases, setCustomerCases] = useState([]);
+  const [employeeStories, setEmployeeStories] = useState([]);
 
   // Dropdown open/close states
   const [isVacancyBoxOpen, setIsVacancyBoxOpen] = useState(false);
@@ -18,6 +19,7 @@ export default function CreateModalProfile({ showProfileCreateModal, handleCreat
   const [isInternBoxOpen, setIsInternBoxOpen] = useState(false);
   const [isEmploymentBoxOpen, setIsEmploymentBoxOpen] = useState(false);
   const [isCustomerBoxOpen, setIsCustomerBoxOpen] = useState(false);
+  const [isEmployeeStoryBoxOpen, setIsEmployeeStoryBoxOpen] = useState(false);
 
   const handleAddNewProfile = async (e) => {
     e.preventDefault();
@@ -31,6 +33,7 @@ export default function CreateModalProfile({ showProfileCreateModal, handleCreat
       internNetworks,
       employmentConditions,
       customerCases,
+      employeeStories
     };
 
     if (name.trim() === "") {
@@ -192,6 +195,17 @@ export default function CreateModalProfile({ showProfileCreateModal, handleCreat
               setSelected={setCustomerCases}
               isOpen={isCustomerBoxOpen}
               setIsOpen={setIsCustomerBoxOpen}
+              toggleSelection={toggleSelection}
+            />
+
+            {/* Employee stories */}
+            <MultiSelectDropdown
+              label="Employee stories"
+              items={employeeStoryList}
+              selected={employeeStories}
+              setSelected={setEmployeeStories}
+              isOpen={isEmployeeStoryBoxOpen}
+              setIsOpen={setIsEmployeeStoryBoxOpen}
               toggleSelection={toggleSelection}
             />
 

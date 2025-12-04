@@ -19,6 +19,9 @@ import { getEmploymentConditions } from "../service/employment-conditions-servic
 import { getEvents } from "../service/events-service";
 import { getInternNetworks } from "../service/intern-networks-service";
 import { getCustomerCases } from "../service/customer-cases-service";
+import CreateModalEmployeeStories from "../components/employee-stories/create-modal-employee-stories";
+import { getEmployeeStory } from "../service/employee-stories-service";
+import EmployeeStoryTable from "../components/employee-stories/employee-stories-table";
 
 export default function Dashboard() {
     const [profiles, setProfiles] = useState([]);
@@ -27,6 +30,7 @@ export default function Dashboard() {
     const [events, setEvents] = useState([]);
     const [employmentConditions, setEmploymentConditions] = useState([]);
     const [customerCases, setCustomerCases] = useState([]);
+    const [employeeStories, setEmployeeStories] = useState([]);
     const [showFilterMenu, setShowFilterMenu] = useState(false);
     const [chosenFilter, setChosenFilter] = useState(localStorage.getItem("filter") || "Profiles"); // Set the default view to profiles if nothing exists in the localStorage.
     const [activeAlert, setActiveAlert] = useState(false);
@@ -40,6 +44,7 @@ export default function Dashboard() {
     const [showEmploymentConditionCreateModal, setShowEmploymentConditionCreateModal] = useState(false);
     const [showEventCreateModal, setShowEventCreateModal] = useState(false);
     const [showVacancyCreateModal, setShowVacancyCreateModal] = useState(false);
+    const [showEmployeeStoryCreateModal, setShowEmployeeStoryCreateModal] = useState(false);
 
     useEffect(() => {
         fetchInternNetworks();
@@ -47,6 +52,7 @@ export default function Dashboard() {
         fetchEvents();
         fetchEmploymentConditions();
         fetchCustomerCases();
+        fetchEmployeeStories();
         fetchProfiles();
     }, []);
 
@@ -55,6 +61,7 @@ export default function Dashboard() {
     const fetchEvents = async () => setEvents(await getEvents());
     const fetchEmploymentConditions = async () => setEmploymentConditions(await getEmploymentConditions());
     const fetchCustomerCases = async () => setCustomerCases(await getCustomerCases());
+    const fetchEmployeeStories = async () => setEmployeeStories(await getEmployeeStory());
     const fetchProfiles = async () => setProfiles(await getProfiles());
 
     // Handles the filter change, and also saves it to localStorage to remember your choice.
@@ -80,6 +87,7 @@ export default function Dashboard() {
             case "employment condition": setShowEmploymentConditionCreateModal(true); break;
             case "vacancy": setShowVacancyCreateModal(true); break;
             case "event": setShowEventCreateModal(true); break;
+            case "employee story": setShowEmployeeStoryCreateModal(true); break;
         }
         setShowCreateMenu(!showCreateMenu);
     }
@@ -96,20 +104,22 @@ export default function Dashboard() {
             />
 
             {/* Create modals. */}
-            <CreateModalProfile eventList={events} customerCaseList={customerCases} vacancyList={vacancies} internNetworkList={internNetworks} employmentConditionList={employmentConditions} triggerShowAlert={handleShowAlert} showProfileCreateModal={showProfileCreateModal} handleCreateModalPopUp={() => setShowProfileCreateModal(!showProfileCreateModal)} />
+            <CreateModalProfile eventList={events} customerCaseList={customerCases} employeeStoryList={employeeStories} vacancyList={vacancies} internNetworkList={internNetworks} employmentConditionList={employmentConditions} triggerShowAlert={handleShowAlert} showProfileCreateModal={showProfileCreateModal} handleCreateModalPopUp={() => setShowProfileCreateModal(!showProfileCreateModal)} />
             <CreateModalInternNetwork triggerShowAlert={handleShowAlert} showInternNetworkCreateModal={showInternNetworkCreateModal} handleShowInternNetworkCreateModal={() => setShowInternNetworkCreateModal(!showInternNetworkCreateModal)} />
             <CreateModalCustomerCases triggerShowAlert={handleShowAlert} showCustomerCaseCreateModal={showCustomerCaseCreateModal} handleShowCustomerCaseCreateModal={() => setShowCustomerCasesCreateModal(!showCustomerCaseCreateModal)} />
             <CreateModalEmploymentCondition triggerShowAlert={handleShowAlert} showEmploymentConditionCreateModal={showEmploymentConditionCreateModal} handleShowEmploymentConditionCreateModal={() => setShowEmploymentConditionCreateModal(!showEmploymentConditionCreateModal)} />
             <CreateModalVacancy triggerShowAlert={handleShowAlert} showVacancyCreateModal={showVacancyCreateModal} handleShowVacancyCreateModal={() => setShowVacancyCreateModal(!showVacancyCreateModal)} />
             <CreateModalEvent triggerShowAlert={handleShowAlert} showEventCreateModal={showEventCreateModal} handleShowEventCreateModal={() => setShowEventCreateModal(!showEventCreateModal)} />
+            <CreateModalEmployeeStories triggerShowAlert={handleShowAlert} showEmployeeStoryCreateModal={showEmployeeStoryCreateModal} handleShowEmployeeStoryCreateModal={() => setShowEmployeeStoryCreateModal(!showEmployeeStoryCreateModal)} />
 
             {/* Table view. */}
-            {chosenFilter === "Profiles" && <ProfileTable vacancyList={vacancies} eventList={events} employmentConditionList={employmentConditions} internNetworkList={internNetworks} customerCaseList={customerCases} profiles={profiles} />}
+            {chosenFilter === "Profiles" && <ProfileTable vacancyList={vacancies} eventList={events} employmentConditionList={employmentConditions} internNetworkList={internNetworks} customerCaseList={customerCases} employeeStoryList={employeeStories} profiles={profiles} />}
             {chosenFilter === "Events" && <EventsTable items={events} />}
             {chosenFilter === "Employment conditions" && <EmploymentTable items={employmentConditions} />}
             {chosenFilter === "Intern networks" && <InternNetworksTable items={internNetworks} />}
             {chosenFilter === "Vacancies" && <VacanciesTable items={vacancies} />}
             {chosenFilter === "Customer cases" && <CustomerCasesTable items={customerCases} />}
+            {chosenFilter === "Employee stories" && <EmployeeStoryTable items={employeeStories} />}
 
             <CustomAlert message={alertMessage} showAlert={activeAlert} />
         </section>

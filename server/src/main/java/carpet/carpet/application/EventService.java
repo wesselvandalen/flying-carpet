@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import carpet.carpet.data.EventRepository;
 import carpet.carpet.domain.Event;
-import carpet.carpet.domain.InternNetwork;
 import carpet.carpet.domain.Profile;
 import carpet.carpet.presentation.dto.EventDTO;
 import jakarta.transaction.Transactional;

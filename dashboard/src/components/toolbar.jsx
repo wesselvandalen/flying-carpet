@@ -36,6 +36,9 @@ export default function Toolbar({ showCreateMenu, handleShowCreateMenu, setShowF
                             <li onClick={() => handleShowCreateMenu("event")} className="flex items-center hover:bg-gray-100 rounded-sm px-3 py-2 cursor-pointer text-sm font-medium text-gray-900">
                                 Event
                             </li>
+                             <li onClick={() => handleShowCreateMenu("employee story")} className="flex items-center hover:bg-gray-100 rounded-sm px-3 py-2 cursor-pointer text-sm font-medium text-gray-900">
+                                Employee story
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -74,6 +77,9 @@ export default function Toolbar({ showCreateMenu, handleShowCreateMenu, setShowF
                             </li>
                             <li onClick={() => handleFilterChange("Events")} className="flex items-center hover:bg-gray-100 rounded-sm px-3 py-2 cursor-pointer text-sm font-medium text-gray-900">
                                 Events
+                            </li>
+                            <li onClick={() => handleFilterChange("Employee stories")} className="flex items-center hover:bg-gray-100 rounded-sm px-3 py-2 cursor-pointer text-sm font-medium text-gray-900">
+                                Employee stories
                             </li>
                         </ul>
                     </div>

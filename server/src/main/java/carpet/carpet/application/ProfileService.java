@@ -23,7 +23,7 @@ public class ProfileService implements ContentServiceInterface<Profile, ProfileD
     @Override
     public Profile create(ProfileDTO dto) {
         final Profile profile = new Profile(dto.getName(), dto.getLocation(), dto.getDate(), dto.getVacancies(),
-                dto.getEvents(), dto.getInternNetworks(), dto.getEmploymentConditions(), dto.getCustomerCases());
+                dto.getEvents(), dto.getInternNetworks(), dto.getEmploymentConditions(), dto.getCustomerCases(), dto.getEmployeeStories());
         this.profileRepository.save(profile);
         return profile;
     }

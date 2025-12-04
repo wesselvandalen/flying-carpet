@@ -7,7 +7,8 @@ export default function UpdateModalProfile({ profile, handleShowModal, showModal
     eventList,
     internNetworkList,
     employmentConditionList,
-    customerCaseList, }) {
+    customerCaseList,
+employeeStoryList }) {
     const [name, setName] = useState(profile.name);
     const [location, setLocation] = useState(profile.location);
     const [date, setDate] = useState(profile.date);
@@ -16,6 +17,7 @@ export default function UpdateModalProfile({ profile, handleShowModal, showModal
     const [internNetworks, setInternNetworks] = useState(profile.internNetworks);
     const [employmentConditions, setEmploymentConditions] = useState(profile.employmentConditions);
     const [customerCases, setCustomerCases] = useState(profile.customerCases);
+    const [employeeStories, setEmployeeStories] = useState(profile.employeeStories);
 
     // Dropdown open/close states
     const [isVacancyBoxOpen, setIsVacancyBoxOpen] = useState(false);
@@ -23,10 +25,11 @@ export default function UpdateModalProfile({ profile, handleShowModal, showModal
     const [isInternBoxOpen, setIsInternBoxOpen] = useState(false);
     const [isEmploymentBoxOpen, setIsEmploymentBoxOpen] = useState(false);
     const [isCustomerBoxOpen, setIsCustomerBoxOpen] = useState(false);
+    const [isEmployeeStoryBoxOpen, setIsEmployeeStoryBoxOpen] = useState(false);
 
     const handleUpdateProfile = async (e) => {
         e.preventDefault();
-        const object = { "id": profile.id, name, location, date, vacancies, events, internNetworks, employmentConditions, customerCases };
+        const object = { "id": profile.id, name, location, date, vacancies, events, internNetworks, employmentConditions, customerCases, employeeStories };
 
         if (name === undefined || name.trim() === "") {
             object.name = profile.name;
@@ -177,6 +180,17 @@ export default function UpdateModalProfile({ profile, handleShowModal, showModal
                             setSelected={setCustomerCases}
                             isOpen={isCustomerBoxOpen}
                             setIsOpen={setIsCustomerBoxOpen}
+                            toggleSelection={toggleSelection}
+                        />
+
+                         {/* Employee stories */}
+                        <MultiSelectDropdown
+                            label="Employee stories"
+                            items={employeeStoryList}
+                            selected={employeeStories}
+                            setSelected={setEmployeeStories}
+                            isOpen={isEmployeeStoryBoxOpen}
+                            setIsOpen={setIsEmployeeStoryBoxOpen}
                             toggleSelection={toggleSelection}
                         />
 

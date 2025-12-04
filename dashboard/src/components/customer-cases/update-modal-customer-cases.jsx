@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { handleLongNames } from "../../service/utils";
 import { deleteCustomerCaseById, updateCustomerCase } from "../../service/customer-cases-service";
+import { companyNames, sectors } from "../../config/config";
 
 export default function UpdateModalCustomerCases({ customerCase, handleShowModal, showModal, handleAlertShow }) {
     const [title, setTitle] = useState(customerCase.title);

@@ -56,7 +56,7 @@ export default function MultiSelectDropdown({
                                         />
                                         <span>{
                                             // https://stackoverflow.com/questions/135448/how-do-i-check-if-an-object-has-a-specific-property-in-javascript
-                                            Object.hasOwn(item, "name") ? item.name : item.title}</span>
+                                            Object.hasOwn(item, "name") ? item.name : Object.hasOwn(item, "title") ? item.title : item.quote}</span>
                                     </label>
                                 })}
                             </div>

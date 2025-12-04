@@ -34,6 +34,7 @@ public class SecurityConfig {
                 .requestMatchers("/login/**").permitAll()
                 .requestMatchers(org.springframework.http.HttpMethod.GET, "/intern-networks/**").permitAll()
                 .requestMatchers(org.springframework.http.HttpMethod.GET, "/vacancies/**").permitAll()
+                .requestMatchers(org.springframework.http.HttpMethod.GET, "/employee-stories/**").permitAll()
                 .requestMatchers(org.springframework.http.HttpMethod.GET, "/events/**").permitAll()
                 .requestMatchers(org.springframework.http.HttpMethod.GET, "/employment-conditions/**").permitAll()
                 .requestMatchers(org.springframework.http.HttpMethod.GET, "/customer-cases/**").permitAll()

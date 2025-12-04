@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import carpet.carpet.domain.CustomerCase;
+import carpet.carpet.domain.EmployeeStory;
 import carpet.carpet.domain.EmploymentCondition;
 import carpet.carpet.domain.Event;
 import carpet.carpet.domain.InternNetwork;
@@ -21,8 +22,9 @@ public class ProfileDTO {
     private Set<InternNetwork> internNetworks = new HashSet<InternNetwork>();
     private Set<EmploymentCondition> employmentConditions = new HashSet<EmploymentCondition>();
     private Set<CustomerCase> customerCases = new HashSet<CustomerCase>();
+    private Set<EmployeeStory> employeeStories = new HashSet<EmployeeStory>();
         
-    public ProfileDTO(Long id, String name, String location, Date date, Set<Vacancy> vacancies, Set<Event> events, Set<InternNetwork> internNetworks, Set<EmploymentCondition> employmentConditions, Set<CustomerCase> customerCases) {
+    public ProfileDTO(Long id, String name, String location, Date date, Set<Vacancy> vacancies, Set<Event> events, Set<InternNetwork> internNetworks, Set<EmploymentCondition> employmentConditions, Set<CustomerCase> customerCases, Set<EmployeeStory> employeeStories) {
         this.id = id;
         this.name = name;
         this.location = location;
@@ -32,6 +34,11 @@ public class ProfileDTO {
         this.internNetworks = internNetworks;
         this.employmentConditions = employmentConditions;
         this.customerCases = customerCases;
+        this.employeeStories = employeeStories;
+    }
+
+    public Set<EmployeeStory> getEmployeeStories() {
+        return employeeStories;
     }
 
     public Long getId() {

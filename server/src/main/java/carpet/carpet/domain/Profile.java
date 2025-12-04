@@ -37,13 +37,16 @@ public class Profile {
     @ManyToMany
     @JoinTable(name = "profile_customer_cases", joinColumns = @JoinColumn(name = "profile_id"), inverseJoinColumns = @JoinColumn(name = "customer_case_id"))
     private Set<CustomerCase> customerCases;
+    @ManyToMany
+    @JoinTable(name = "profile_employee_stories", joinColumns = @JoinColumn(name = "profile_id"), inverseJoinColumns = @JoinColumn(name = "employee_story_id"))
+    private Set<EmployeeStory> employeeStories;
 
     // Default empty constructur for Spring.
     protected Profile() { }
 
     public Profile(String name, String location, Date date, Set<Vacancy> vacancies, Set<Event> events,
             Set<InternNetwork> internNetworks, Set<EmploymentCondition> employmentConditions,
-            Set<CustomerCase> customerCases) {
+            Set<CustomerCase> customerCases, Set<EmployeeStory> employeeStories) {
         this.name = name;
         this.location = location;
         this.date = date;
@@ -52,6 +55,7 @@ public class Profile {
         this.internNetworks = internNetworks;
         this.employmentConditions = employmentConditions;
         this.customerCases = customerCases;
+        this.employeeStories = employeeStories;
     }
 
     public Profile(String name, String location, Date date) {
@@ -63,6 +67,7 @@ public class Profile {
         this.internNetworks = new HashSet<InternNetwork>();;
         this.employmentConditions = new HashSet<EmploymentCondition>();;
         this.customerCases = new HashSet<CustomerCase>();;
+        this.employeeStories = new HashSet<EmployeeStory>();
     }
 
     public void removeVacancy(Vacancy vacancy) {
@@ -73,8 +78,20 @@ public class Profile {
         this.internNetworks.remove(internNetwork);
     }
 
+    public void removeEmployeeStory(EmployeeStory employeeStory) {
+        this.employeeStories.remove(employeeStory);
+    }
+
     public void removeCustomerCase(CustomerCase customerCase) {
         this.customerCases.remove(customerCase);
+    }
+
+    public Set<EmployeeStory> getEmployeeStories() {
+        return employeeStories;
+    }
+
+    public void setEmployeeStories(Set<EmployeeStory> employeeStories) {
+        this.employeeStories = employeeStories;
     }
 
     public void removeEmploymentConditions(EmploymentCondition employmentCondition) {
@@ -169,6 +186,7 @@ public class Profile {
                 ", internNetworks=" + internNetworks +
                 ", employmentConditions=" + employmentConditions +
                 ", customerCases=" + customerCases +
+                ", employeeStories=" + employeeStories +
                 '}';
     }
 }

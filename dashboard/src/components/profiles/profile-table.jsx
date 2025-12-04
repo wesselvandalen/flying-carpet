@@ -6,15 +6,17 @@ export default function ProfileTable({ profiles, vacancyList,
     eventList,
     internNetworkList,
     employmentConditionList,
-    customerCaseList, }) {
-    const columnNames = ["Id", "Name", "Location", "Date", "Vacancies", "Events", "Intern networks", "Employment conditions", "Customer cases"];
+    customerCaseList, 
+employeeStoryList }) {
+    const columnNames = ["Id", "Name", "Location", "Date", "Vacancies", "Events", "Intern networks", "Employment conditions", "Customer cases", "Employee stories"];
     const [profile, setProfile] = useState();
     const [showModal, setShowModal] = useState(false);
 
     const openUpdateModal = (item) => {
         const profileObject = {
             "id": item.id, "name": item.name, "location": item.location, "date": item.date, "vacancies": item.vacancies, "events": item.events,
-            "internNetworks": item.internNetworks, "employmentConditions": item.employmentConditions, "customerCases": item.customerCases
+            "internNetworks": item.internNetworks, "employmentConditions": item.employmentConditions, "customerCases": item.customerCases,
+            "employeeStories": item.employeeStories
         };
         setProfile(profileObject); 
         setShowModal(true);
@@ -67,6 +69,9 @@ export default function ProfileTable({ profiles, vacancyList,
                                 {item.customerCases.length}
                             </td>
                             <td className="px-6 py-4">
+                                {item.employeeStories.length}
+                            </td>
+                            <td className="px-6 py-4">
                                 <div onClick={() => openUpdateModal(item)} className="font-medium text-blue-600 cursor-pointer">Edit</div>
                             </td>
                         </tr>
@@ -74,7 +79,7 @@ export default function ProfileTable({ profiles, vacancyList,
                 </tbody>
             </table>
             {showModal && <UpdateModalProfile profile={profile} handleShowModal={() => setShowModal(!showModal)} showModal={showModal} vacancyList={vacancyList}
-                eventList={eventList} internNetworkList={internNetworkList} employmentConditionList={employmentConditionList} customerCaseList={customerCaseList} />}
+                eventList={eventList} internNetworkList={internNetworkList} employmentConditionList={employmentConditionList} customerCaseList={customerCaseList} employeeStoryList={employeeStoryList} />}
         </div>
     )
 }
