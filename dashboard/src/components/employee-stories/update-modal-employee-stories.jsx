@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { handleLongNames } from "../../service/utils";
-import { deleteCustomerCaseById, updateCustomerCase } from "../../service/customer-cases-service";
-import { companyNames, sectors, vacancieTitles } from "../../config/config";
+import { vacancieTitles } from "../../config/config";
 import { deleteEmployeeStoriesById, updateEmployeeStory } from "../../service/employee-stories-service";
 
 export default function UpdateModalEmployeeStories({ employeeStory: employeeStory, handleShowModal, showModal, handleAlertShow }) {
@@ -67,7 +66,7 @@ export default function UpdateModalEmployeeStories({ employeeStory: employeeStor
                             </div>
                             <div>
                                 <label htmlFor="employeename" className="block mb-2 text-sm font-medium text-gray-900">Employee name</label>
-                                <input onChange={(e) => employeeName(e.target.value)} type="text" name="employeename" id="employeename" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder={employeeStory.employeeName} required="" />
+                                <input onChange={(e) => setEmployeeName(e.target.value)} type="text" name="employeename" id="employeename" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder={employeeStory.employeeName} required="" />
                             </div>
                             <div>
                                 <label htmlFor="jobtitle" className="block mb-2 text-sm font-medium text-gray-900">Name</label>

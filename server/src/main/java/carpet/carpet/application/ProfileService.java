@@ -41,6 +41,7 @@ public class ProfileService implements ContentServiceInterface<Profile, ProfileD
             foundProfile.setCustomerCases(dto.getCustomerCases());
             foundProfile.setEmploymentConditions(dto.getEmploymentConditions());
             foundProfile.setEvents(dto.getEvents());
+            foundProfile.setEmployeeStories(dto.getEmployeeStories());
             this.profileRepository.save(foundProfile);
             return foundProfile;
         }
