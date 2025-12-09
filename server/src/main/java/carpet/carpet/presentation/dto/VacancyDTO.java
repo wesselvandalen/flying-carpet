@@ -13,10 +13,11 @@ public class VacancyDTO {
     private String employmentType;
     private String department;
     private String location;
+    private String salary;
 
     public VacancyDTO(Long id, String title, String description, String image, String url, String employmentType,
             String department,
-            String location) {
+            String location, String salary) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -26,6 +27,11 @@ public class VacancyDTO {
         this.location = location;
         this.postedDate = new Date();
         this.department = department;
+        this.salary = salary;
+    }
+
+    public String getSalary() {
+        return salary;
     }
 
     public Long getId() {
@@ -75,6 +81,7 @@ public class VacancyDTO {
                 ", employmentType='" + employmentType + '\'' +
                 ", department='" + department + '\'' +
                 ", location='" + location + '\'' +
+                ", salary='" + salary + '\'' +
                 '}';
     }
 }

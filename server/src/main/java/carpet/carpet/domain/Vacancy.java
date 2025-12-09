@@ -23,12 +23,13 @@ public class Vacancy {
     private String employmentType;
     private String department;
     private String location;
+    private String salary;
 
     // Default empty constructur for Spring.
     protected Vacancy() { }
 
     public Vacancy(String title, String description, String image, String url, String employmentType, String department,
-            String location) {
+            String location, String salary) {
         this.title = title;
         this.description = description;
         this.image = image;
@@ -37,10 +38,15 @@ public class Vacancy {
         this.location = location;
         this.postedDate = new Date();
         this.department = department;
+        this.salary = salary;
     }
 
     public String getDepartment() {
         return department;
+    }
+
+    public String getSalary() {
+        return salary;
     }
 
     public String getDescription() {
@@ -111,6 +117,10 @@ public class Vacancy {
         this.url = url;
     }
 
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
+
     @Override
     public String toString() {
         return "Vacancy {" +
@@ -123,6 +133,7 @@ public class Vacancy {
                 ", employmentType='" + employmentType + '\'' +
                 ", department='" + department + '\'' +
                 ", location='" + location + '\'' +
+                ", salary='" + salary + '\'' +
                 '}';
     }
 }

@@ -27,7 +27,7 @@ public class VacancyService implements ContentServiceInterface<Vacancy, VacancyD
     @Override
     public Vacancy create(VacancyDTO dto) {
         final Vacancy vacancy = new Vacancy(dto.getTitle(), dto.getDescription(), dto.getImage(), dto.getUrl(),
-                dto.getEmploymentType(), dto.getDepartment(), dto.getLocation());
+                dto.getEmploymentType(), dto.getDepartment(), dto.getLocation(), dto.getSalary());
         this.vacancyRepository.save(vacancy);
         return vacancy;
     }
@@ -45,6 +45,7 @@ public class VacancyService implements ContentServiceInterface<Vacancy, VacancyD
             foundVacancy.setPostedDate(dto.getPostedDate());
             foundVacancy.setTitle(dto.getTitle());
             foundVacancy.setUrl(dto.getUrl());
+            foundVacancy.setSalary(dto.getSalary());
             this.vacancyRepository.save(foundVacancy);
             return foundVacancy;
         }

@@ -4,6 +4,7 @@ import HomePage from './pages/home_page';
 import NotFoundPage from './pages/not_found_page';
 import Header from './components/header';
 import Footer from './components/footer';
+import VacanciesPage from './pages/vacancies_page';
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <div className="app-content">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/vacancies" element={<VacanciesPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>

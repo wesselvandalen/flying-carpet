@@ -7,6 +7,21 @@
         "employmentconditions": "Employment conditions",
         "employeestories": "Employee stories"
     },
+    "sections": {
+        "vacancies": {
+            "description": "Interested in a job at Capgemini?",
+            "link": "View all vacancies",
+            "descriptionpage": "Interested in a job at Capgemini? Take a look at all our vacancies below."
+        }
+    },
+    "profilesearcher": {
+        "pick": "Pick a profile from the searcher",
+        "search": "Search profile"
+    },
+    "homepage": {
+        "description": "Take the next step in your career at Capgemini.",
+        "cta": "Take a look at our "
+    },
     "notfound": {
         "description": "This page is nowhere to be found..."
     },

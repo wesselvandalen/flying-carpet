@@ -1,0 +1,82 @@
+.vacancy-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  justify-content: space-between;
+  /* makes top+middle stay at top, button stays at bottom */
+  /* cards equal height */
+}
+
+.vacancy-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.vacancy-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.vacancy-content {
+  padding: 15px;
+  flex-grow: 1;
+  /* allow middle section to fill available space */
+}
+
+.vacancy-title {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #333;
+}
+
+.vacancy-description {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+.vacancy-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.vacancy-details span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.card-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.card-button {
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  text-decoration: none;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 8px 0;
+  font-size: 16px;
+}
+
+.card-button:hover {
+  background-color: #eeeeee;
+}

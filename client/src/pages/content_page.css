@@ -1,0 +1,32 @@
+.content-page-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.content-page-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1400px;
+    margin-top: 120px;
+}
+
+.content-page-title {
+    margin: 0;
+}
+
+.content-page-description {
+    margin: 10px 0 20px 0;
+    font-size: 16px;
+}
+
+.content-page-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 30px 0;
+}

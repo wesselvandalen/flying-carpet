@@ -1,0 +1,70 @@
+.profile-searcher {
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    padding: 0 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    max-width: 1400px;
+    margin: 12px auto;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.profile-left {
+    width: 50%;
+}
+
+.profile-left select {
+    padding: 6px 10px;
+    border-radius: 6px;
+    width: 50%;
+    border: 1px solid #bbb;
+    font-size: 14px;
+}
+
+.profile-right {
+    display: flex;
+    gap: 10px;
+}
+
+.ps-button {
+    padding: 6px 14px;
+    border-radius: 6px;
+    min-width: 100px;
+    border: none;
+    background-color: var(--standard-blue);
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.ps-button:hover {
+    background-color: var(--standard-blue-hover);
+}
+
+.ps-btn {
+    padding: 6px 14px;
+    border-radius: 6px;
+    min-width: 44px;
+    border: none;
+    background-color: var(--standard-blue);
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.ps-btn:hover {
+    background-color: var(--standard-blue-hover);
+}
+
+.ps-hide {
+    background-color: #ffffff;
+    color: #000;
+}
+
+.ps-hide:hover {
+    background-color: #f7f7f7;
+}

@@ -24,7 +24,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.45);  /* Dark overlay */
+  background: rgba(0, 0, 0, 0.6);  /* Dark overlay */
   z-index: -1;
 }
 
@@ -49,8 +49,19 @@
 }
 
 .hero-content p {
-  font-size: 1.5rem;
-  margin-top: 15px;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.hero-content a {
+  color: #08a8ff;
+  font-size: 20px;
+  margin: 0;
+}
+
+.heor-content a:hover {
+  color: #074dda;
 }
 
 @media (max-width: 768px) {

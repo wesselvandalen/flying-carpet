@@ -7,6 +7,17 @@
         "employmentconditions": "Arbeidsvoorwaarden",
         "employeestories": "Medewerker verhalen"
     },
+    "sections": {
+        "vacancies": {
+            "description": "Geïnteresseerd in een baan bij Capgemini?",
+            "link": "Bekijk alle vacatures",
+            "descriptionpage": "Geïnteresseerd in een baan bij Capgemini? Neem een kijkje hieronder bij al onze vacatures. "
+        }
+    },
+    "homepage": {
+        "description": "Neem de volgende stap voor jouw carriere bij Capgemini.",
+        "cta": "Neem een kijkje bij onze "
+    },
     "notfound": {
         "description": "Deze pagina is nergens te vinden..."
     },
