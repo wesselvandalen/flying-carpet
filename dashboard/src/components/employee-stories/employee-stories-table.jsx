@@ -30,6 +30,7 @@ export default function EmployeeStoryTable({ items }) {
                 </thead>
                 <tbody className="w-full">
                     {items.map((item, index) => {
+                        const date = new Date(item.publishDate);
                         return <tr className="odd:bg-white even:bg-gray-50 border-gray-200" key={index}>
                             <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                 {item.id}
@@ -50,7 +51,7 @@ export default function EmployeeStoryTable({ items }) {
                                 {handleLongNames(item.image)}
                             </td>
                             <td className="px-6 py-4">
-                                {item.publishDate}
+                                {date.toLocaleString()}
                             </td>
                             <td className="px-6 py-4">
                                 <div onClick={() => openUpdateModal(item)} className="font-medium text-blue-600 cursor-pointer">Edit</div>

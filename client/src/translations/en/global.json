@@ -1,14 +1,17 @@
 {
-    "home": {
-        "description": "At Capgemini, we are driven by a shared purpose: Unleashing human energy through technology for an inclusive and sustainable future.",
-        "learnmore": "Learn more about us",
-        "perks": "Check our perks"
-    },
     "header": {
-        "home": "Home",
-        "employmentconditions": "Employment Conditions"
+        "vacancies": "Vacancies",
+        "customercases": "Customer cases",
+        "events": "Events",
+        "internnetworks": "Intern networks",
+        "employmentconditions": "Employment conditions",
+        "employeestories": "Employee stories"
+    },
+    "notfound": {
+        "description": "This page is nowhere to be found..."
     },
     "footer": {
-        "rightsreserved": "All rights reserved."
+        "followus": "Follow us",
+        "pages": "Pages"
     }
 }

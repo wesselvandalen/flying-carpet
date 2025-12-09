@@ -1,59 +1,23 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-  background-color: #fff;
-  color: #000;
-  overflow-x: hidden; /* Prevents horizontal scroll. */
-}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
-:root {
-  scroll-behavior: smooth;
+html, body, #root {
+    font-family: "DM Sans", "Arial";
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
 }
-
-.section-title {
-  font-size: 24px;
-  
-}
-
-/*  */
 
 .app-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  min-height: 100vh;
-}
-
-.app-wrapper {
+  min-height: 100%;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  width: 100%;
 }
 
-.app-innhold {
-  width: 100%;
+.app-content {
+  flex: 1;                  
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  flex: 1 0 auto;
-}
-
-.main-content {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  flex: 1 0 auto;
-}
-
-@media screen and (max-width: 1080px) {
-  .main-content {
-    max-width: none;
-  }
+  justify-content: center;    
+  align-items: center;            
 }

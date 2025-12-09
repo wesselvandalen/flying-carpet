@@ -17,11 +17,10 @@ function getLanguage() {
     return lang;
   }
 
-  localStorage.setItem('lang', "en");
-  document.documentElement.lang = "en";
-  return "en";
+  localStorage.setItem('lang', 'en');
+  document.documentElement.lang = 'en';
+  return 'en';
 }
-
 
 i18next.use(initReactI18next).init({
   interpolation: { escapeValue: true },
@@ -38,4 +37,4 @@ createRoot(document.getElementById('root')).render(
       <App />
     </I18nextProvider>
   </StrictMode>,
-)
+);

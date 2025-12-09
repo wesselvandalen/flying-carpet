@@ -1,79 +1,69 @@
-.footer-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.footer {
     width: 100%;
+    background: white;
     padding: 40px 0;
-}
-
-.footer-content {
     display: flex;
-    align-items: center;
     justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    max-width: 1800px;
+    border-top: 1px solid #eaeaea;
 }
 
-.footer-top {
-    display: flex;
-    align-items: center;
-    width: 100%;
+.footer-container {
+    width: 90%;
+    max-width: 1400px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1fr;
+    align-items: start;
+    gap: 40px;
 }
 
-/* Logo part (image plus link) */
-
-.logo {
-    display: flex;
-    align-items: center;
-    width: 100%;
+.footer-logo img {
+    width: 160px;
+    /* Adjust size as needed */
 }
 
-.logo img {
-    width: 150px;
+.footer-section h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #000;
+    text-transform: uppercase;
 }
 
-/* Footer links to different pages/sites. */
-
-.footer-links {
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    width: 100%;
+.footer-section ul {
     list-style: none;
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
 }
 
-.footer-links li a {
-    width: 100%;
-    color: black;
+.footer-section a {
+    font-size: 16px;
+    color: #000;
     text-decoration: none;
+    margin-bottom: 6px;
+    cursor: pointer;
 }
 
-.footer-links li a:hover {
-    text-decoration: underline;
+.footer-section a:hover {
+    opacity: 0.7;
 }
 
-/* HR line that seperates the footer into different parts. */
-
-.line {
-    background-color: #000;
-    width: 100%;
-    margin: 20px 0;
-
+/* Responsive */
+@media (max-width: 900px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
-/* Rights for the bottom part of the footer. */
+@media (max-width: 600px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
 
-.rights-footer {
-    
-}
-
-.rights-footer-link {
-    color: #aeaeae;
-    text-decoration: none;
-}
-
-.rights-footer-link:hover {
-    text-decoration: underline;
+    .footer-logo {
+        display: flex;
+        justify-content: center;
+    }
 }

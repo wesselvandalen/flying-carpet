@@ -1,20 +1,12 @@
-import "./Header.css";
-import capgeminiLogo from "../assets/logo.png";
-import { useTranslation } from "react-i18next";
-
-import nlFlag from "../assets/flags/nl.png";
-import enFlag from "../assets/flags/en.png";
+import "./header.css";
+import capgemini_logo_white from "../assets/capgemini_logo_white.png";
+import { useTranslation } from 'react-i18next';
+import nlFlag from '../assets/flags/nl.png';
+import enFlag from '../assets/flags/en.png';
+import './language_menu.css';
 
 export default function Header() {
     const { t, i18n } = useTranslation("global");
-
-    const links = [
-        { name: t("header.home"), url: "/" },
-        { name: t("header.employmentconditions"), url: "#employment-conditions" },
-        { name: t("Contact"), url: "#contact" },
-        { name: t("Faq"), url: "#faq" },
-        { name: t("About"), url: "#about" }
-    ];
 
     const handleLanguageSwitch = (lang) => {
         i18n.changeLanguage(lang);
@@ -34,19 +26,26 @@ export default function Header() {
     };
 
     return (
-        <nav className="header-container">
-            <div className="header-content">
-                <a href="/">
-                    <img className="header-logo" src={capgeminiLogo} alt="Capgemini logo" />
+        <header className="header">
+
+            <div className="header-left">
+
+                <a href="/" className="logo">
+                    <img src={capgemini_logo_white} alt="The logo of Capgemini." />
                 </a>
 
-                <ul className="header-links">
-                    {links.map((link, index) => {
-                        return <li className="header-link" key={index}>
-                            <a href={link.url}>{link.name}</a>
-                        </li>
-                    })}
-                </ul>
+                <nav className="nav-links">
+                    <a href="/vacancies">{t("header.vacancies")}</a>
+                    <a href="/customercases">{t("header.customercases")}</a>
+                    <a href="/events">{t("header.events")}</a>
+                    <a href="/internnetworks">{t("header.internnetworks")}</a>
+                    <a href="/employmentconditions">{t("header.employmentconditions")}</a>
+                    <a href="/employeestories">{t("header.employeestories")}</a>
+                </nav>
+
+            </div>
+
+            <div className="header-right">
 
                 <div className="language-menu nav-item">
                     <img
@@ -61,11 +60,12 @@ export default function Header() {
                         className="language-select"
                         id='language-select'
                     >
-                        <option value="en">English</option>
                         <option value="nl">Nederlands</option>
+                        <option value="en">English</option>
                     </select>
                 </div>
+
             </div>
-        </nav>
-    )
+        </header>
+    );
 }

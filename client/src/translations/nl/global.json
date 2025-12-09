@@ -1,14 +1,17 @@
 {
-    "home": {
-        "description": "Bij Capgemini streven we naar een gezamenlijk doel: het ontketenen van menselijke energie door middel van technologie voor een inclusieve en duurzame toekomst.",
-        "learnmore": "Leer meer over ons",
-        "perks": "Bekijk onze perks"
-    },
     "header": {
-        "home": "Thuispagina",
-        "employmentconditions": "Arbeidsvoorwaarden"
+        "vacancies": "Vacatures",
+        "customercases": "Klant cases",
+        "events": "Evenementen",
+        "internnetworks": "Interne netwerken",
+        "employmentconditions": "Arbeidsvoorwaarden",
+        "employeestories": "Medewerker verhalen"
+    },
+    "notfound": {
+        "description": "Deze pagina is nergens te vinden..."
     },
     "footer": {
-        "rightsreserved": "Alle rechten voorbehouden."
+        "followus": "Volg ons",
+        "pages": "Pagina's"
     }
 }
