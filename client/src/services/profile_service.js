@@ -1,4 +1,4 @@
-export default class ProfileService {
+class ProfileService {
     
     constructor(baseUrl = "http://localhost:8080/profiles") {
         this.baseUrl = baseUrl;
@@ -34,3 +34,5 @@ export default class ProfileService {
     // async create(data) { ... }
     // async delete(id) { ... }
 }
+
+export const profileService = new ProfileService();

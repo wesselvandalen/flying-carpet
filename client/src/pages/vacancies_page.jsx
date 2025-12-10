@@ -1,20 +1,19 @@
 import { useTranslation } from 'react-i18next';
 import './content_page.css';
 import { useEffect, useState } from 'react';
-import VacancyService from '../services/vacancy_service';
+import {vacancyService} from '../services/vacancy_service';
 import VacancyCard from '../components/vacancy_card';
 
 export default function VacanciesPage() {
     const {t} = useTranslation("global");
     const [vacancies, setVacancies] = useState([]);
-    const service = new VacancyService();
 
     useEffect(() => {
         fetchData();
     }, []);
 
     const fetchData = async () => {
-        setVacancies(await service.getAll());
+        setVacancies(await vacancyService.getAll());
     }
 
     return (

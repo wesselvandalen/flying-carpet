@@ -16,7 +16,8 @@
     },
     "homepage": {
         "description": "Neem de volgende stap voor jouw carriere bij Capgemini.",
-        "cta": "Neem een kijkje bij onze "
+        "cta": "Neem een kijkje bij onze ",
+        "emptylist": "Er is geen inhoud hier om te tonen"
     },
     "notfound": {
         "description": "Deze pagina is nergens te vinden..."

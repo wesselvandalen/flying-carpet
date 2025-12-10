@@ -1,4 +1,4 @@
-export default class VacancyService {
+class VacancyService {
     
     constructor(baseUrl = "http://localhost:8080/vacancies") {
         this.baseUrl = baseUrl;
@@ -22,3 +22,5 @@ export default class VacancyService {
     // async create(data) { ... }
     // async delete(id) { ... }
 }
+
+export const vacancyService = new VacancyService();

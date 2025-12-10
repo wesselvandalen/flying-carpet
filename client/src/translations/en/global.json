@@ -20,7 +20,8 @@
     },
     "homepage": {
         "description": "Take the next step in your career at Capgemini.",
-        "cta": "Take a look at our "
+        "cta": "Take a look at our ",
+        "emptylist": "There is no content to be shown here"
     },
     "notfound": {
         "description": "This page is nowhere to be found..."

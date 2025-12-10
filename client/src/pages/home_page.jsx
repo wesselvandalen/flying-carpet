@@ -1,21 +1,29 @@
 import HomeScreen from "../components/home_screen";
 import './home_page.css';
 import VacancySection from "../components/vacancy_section";
-import { useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import ProfileSearcher from "../components/profile_searcher";
-import ProfileService from "../services/profile_service";
+import {profileService} from "../services/profile_service";
 
 export default function HomePage() {
     const [showProfileSearcher, setShowProfileSearcher] = useState(sessionStorage.getItem("close-ps") !== "true");
     const [profile, setProfile] = useState();
-    const service = new ProfileService();
+
+    useEffect(() => {
+        // Fetch profile from sessionStorage.
+        const foundProfile = sessionStorage.getItem("profile");
+
+        if (foundProfile !== null && foundProfile !== undefined && foundProfile !== "undefined") {
+            const parsedProfile = JSON.parse(foundProfile);
+            setProfile(parsedProfile);
+        }
+    }, []);
 
     const hideProfileSearcher = () => setShowProfileSearcher(false);
 
     async function fetchProfileById(profileId) {
-        const profile = await service.getById(profileId);
+        const profile = await profileService.getById(profileId);
         setProfile(profile);
-        console.log(profile);
     }
 
     return (
@@ -27,7 +35,7 @@ export default function HomePage() {
                     onSelectProfile={fetchProfileById}
                 />
             )}
-            <VacancySection profile={profile} />
+            <VacancySection key={profile?.id || "noprof"} profile={profile} />
         </div>
     );
 }
