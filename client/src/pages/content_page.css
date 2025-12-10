@@ -30,3 +30,13 @@
     gap: 20px;
     padding: 30px 0;
 }
+
+.content-page-content span {
+    font-size: 16px;
+}
+
+.line {
+    height: 1px;
+    background-color: #00000015;
+    margin: 25px 0 10px 0;
+}

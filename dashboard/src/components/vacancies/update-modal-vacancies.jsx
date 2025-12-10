@@ -11,10 +11,11 @@ export default function UpdateModalVacancies({ vacancy, handleShowModal, showMod
     const [employmentType, setEmploymentType] = useState(vacancy.employmentType);
     const [department, setDepartment] = useState(vacancy.department);
     const [location, setLocation] = useState(vacancy.location);
+    const [salary, setSalary] = useState(vacancy.salary);
 
     const handleUpdate = async (e) => {
         e.preventDefault();
-        const object = { "id": vacancy.id, title, description, image, postedDate, employmentType, department, location };
+        const object = { "id": vacancy.id, title, description, image, postedDate, employmentType, department, location, salary };
 
         if (title === undefined || title.trim() === "") {
             object.title = vacancy.title;
@@ -36,6 +37,9 @@ export default function UpdateModalVacancies({ vacancy, handleShowModal, showMod
         }
         if (location === undefined) {
             object.location = vacancy.location;
+        }
+        if (salary === undefined) {
+            object.salary = vacancy.salary;
         }
 
         await updateVacancy(object);
@@ -127,6 +131,10 @@ export default function UpdateModalVacancies({ vacancy, handleShowModal, showMod
                             <div>
                                 <label htmlFor="location" className="block mb-2 text-sm font-medium text-gray-900">Location</label>
                                 <input onChange={(e) => setLocation(e.target.value)} type="text" name="location" id="location" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder={vacancy.location} required="" />
+                            </div>
+                            <div>
+                                <label htmlFor="salary" className="block mb-2 text-sm font-medium text-gray-900">Salary</label>
+                                <input onChange={(e) => setSalary(e.target.value)} type="number" name="salary" id="salary" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type salary" required="" />
                             </div>
                         </div>
                         <div className="flex items-center gap-2">

@@ -10,6 +10,7 @@ export default function CreateModalVacancy({ showVacancyCreateModal, handleShowV
     const [employmentType, setEmploymentType] = useState("");
     const [department, setDepartment] = useState("");
     const [location, setLocation] = useState("");
+    const [salary, setSalary] = useState("");
 
     const handleAdd = async (e) => {
         e.preventDefault();
@@ -29,7 +30,7 @@ export default function CreateModalVacancy({ showVacancyCreateModal, handleShowV
             return;
         }
 
-        const object = { title, description, image, postedDate, employmentType, department, location };
+        const object = { title, description, image, postedDate, employmentType, department, location, salary };
         await createVacancy(object);
         window.location.reload();
     }
@@ -112,6 +113,10 @@ export default function CreateModalVacancy({ showVacancyCreateModal, handleShowV
                             <div>
                                 <label htmlFor="location" className="block mb-2 text-sm font-medium text-gray-900">Location</label>
                                 <input onChange={(e) => setLocation(e.target.value)} type="text" name="location" id="location" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type location" required="" />
+                            </div>
+                            <div>
+                                <label htmlFor="salary" className="block mb-2 text-sm font-medium text-gray-900">Salary</label>
+                                <input onChange={(e) => setSalary(e.target.value)} type="number" name="salary" id="salary" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Type salary" required="" />
                             </div>
                         </div>
                         <button onClick={handleAdd} type="submit" className="text-white inline-flex items-center bg-[#1c64f2] cursor-pointer hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">

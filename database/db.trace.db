@@ -217,3 +217,9 @@ org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
 	at carpet.carpet.CarpetApplication.main(CarpetApplication.java:10)
+2025-12-10 15:09:00 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(2000)": "U&'We are looking for a passionate and driven Full Stack Developer to join our g... (3625)"; SQL statement:
+update vacancy set department=?,description=?,employment_type=?,image=?,location=?,posted_date=?,salary=?,title=?,url=? where id=? [22001-214]
+2025-12-10 15:09:12 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(2000)": "U&'We are looking for a passionate and driven Full Stack Developer to join our g... (3625)"; SQL statement:
+update vacancy set department=?,description=?,employment_type=?,image=?,location=?,posted_date=?,salary=?,title=?,url=? where id=? [22001-214]

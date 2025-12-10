@@ -14,6 +14,13 @@
             "descriptionpage": "Interested in a job at Capgemini? Take a look at all our vacancies below."
         }
     },
+    "utils": {
+        "location": "Location",
+        "department": "Department",
+        "date": "Date",
+        "salary": "Salary",
+        "employmenttype": "Employment type"
+    },
     "profilesearcher": {
         "pick": "Pick a profile from the searcher",
         "search": "Search profile"

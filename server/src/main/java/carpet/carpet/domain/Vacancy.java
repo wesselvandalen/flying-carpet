@@ -15,7 +15,7 @@ public class Vacancy {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
-    @Column(length = 2000)
+    @Column(length = 10000)
     private String description;
     private String image;
     private String url;
