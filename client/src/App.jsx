@@ -5,6 +5,7 @@ import NotFoundPage from './pages/not_found_page';
 import Header from './components/header';
 import Footer from './components/footer';
 import VacanciesPage from './pages/vacancies_page';
+import VacancyPage from './pages/vacancy_page';
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/vacancies" element={<VacanciesPage />} />
+            <Route path="/vacancies/:vacancy_id" element={<VacancyPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>

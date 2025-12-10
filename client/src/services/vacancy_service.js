@@ -1,5 +1,5 @@
 class VacancyService {
-    
+
     constructor(baseUrl = "http://localhost:8080/vacancies") {
         this.baseUrl = baseUrl;
     }
@@ -17,10 +17,18 @@ class VacancyService {
         }
     }
 
-    // Example future methods:
-    // async getById(id) { ... }
-    // async create(data) { ... }
-    // async delete(id) { ... }
+    async getById(id) {
+        try {
+            const response = await fetch(this.baseUrl + "/" + id);
+            if (!response.ok) {
+                throw new Error(`Failed to fetch vacancies: ${response.status}`);
+            }
+            return await response.json();
+        } catch (error) {
+            console.error("Error fetching vacancies:", error);
+            throw error;
+        }
+    }
 }
 
 export const vacancyService = new VacancyService();

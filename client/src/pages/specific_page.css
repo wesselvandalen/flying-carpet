@@ -1,0 +1,35 @@
+.specific-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.specific-page-content {
+    margin-top: 100px;
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    width: 100%;
+}
+
+.specific-page-content img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.specific-page-content h3 {
+    font-size: 24px;
+    margin-bottom: 1rem;
+    color: #222;
+}
+
+.specific-page-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+}
