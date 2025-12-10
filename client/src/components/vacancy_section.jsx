@@ -13,11 +13,11 @@ export default function VacancySection({ profile }) {
         if (profile !== undefined) {
             setVacancies(profile.vacancies);
         } else {
-            fetchVacancies();
+            fetchData();
         }
     }, [profile]);
 
-    const fetchVacancies = async () => {
+    const fetchData = async () => {
         const all = await vacancyService.getAll();
         setVacancies(all);
     };

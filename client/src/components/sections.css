@@ -56,6 +56,12 @@
     padding-bottom: 10px;
 }
 
+.section-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
 .section-slider::-webkit-scrollbar {
     height: 5px;
 }

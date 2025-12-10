@@ -29,10 +29,6 @@ class ProfileService {
             throw error;
         }
     }
-    // Example future methods:
-    // async getById(id) { ... }
-    // async create(data) { ... }
-    // async delete(id) { ... }
 }
 
 export const profileService = new ProfileService();

@@ -4,6 +4,7 @@ import VacancySection from "../components/vacancy_section";
 import { useEffect, useState, useMemo } from "react";
 import ProfileSearcher from "../components/profile_searcher";
 import {profileService} from "../services/profile_service";
+import EmploymentConditionsSection from "../components/employment_conditions_section";
 
 export default function HomePage() {
     const [showProfileSearcher, setShowProfileSearcher] = useState(sessionStorage.getItem("close-ps") !== "true");
@@ -35,7 +36,8 @@ export default function HomePage() {
                     onSelectProfile={fetchProfileById}
                 />
             )}
-            <VacancySection key={profile?.id || "noprof"} profile={profile} />
+            <VacancySection profile={profile} />
+            <EmploymentConditionsSection profile={profile} />
         </div>
     );
 }
