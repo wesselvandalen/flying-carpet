@@ -10,7 +10,7 @@ export default function VacancyCard({vacancy}) {
                 <p className="card-description">{shortenText(vacancy.description)}</p>
                 <div className="card-details">
                     <span className="card-atr">{vacancy.employmentType}, {vacancy.location}</span>
-                    <span className="card-atr">{vacancy.salary}</span>
+                    <span className="card-atr">€ {vacancy.salary},-*</span>
                 </div>
             </div>
             <div className="card-button-container">

@@ -13,6 +13,7 @@
     align-items: left;
     flex-direction: column;
     width: 100%;
+    margin-bottom: 40px;
 }
 
 .specific-page-content img {

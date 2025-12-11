@@ -138,16 +138,14 @@ export const departments = [
 ];
 
 export const employmentConditions = [
-    "Permanent",
-    "Fixed-term",
-    "Probationary",
-    "Part-time",
-    "Full-time",
-    "Remote",
-    "Hybrid",
-    "Flexible hours",
-    "On-site",
-    "Seasonal"
+    "Competitive Salary",
+    "Mobility Budget",
+    "Hybrid Working",
+    "Training & Development",
+    "Vacation Days",
+    "Pension Plan",
+    "Work Equipment",
+    "International Culture"
 ];
 
 export const employmentConditionCategories = [

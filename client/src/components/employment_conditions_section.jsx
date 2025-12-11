@@ -35,15 +35,15 @@ export default function EmploymentConditionsSection({ profile }) {
                 </p>
 
                 <div className="section-slider-container">
-                    <div className="section-grid">
-                        {employmentConditions.length > 0 ?
-                            employmentConditions.map((employmentCondition, i) => {
+                    {employmentConditions.length > 0 ?
+                        <div className="section-grid">
+                            {employmentConditions.map((employmentCondition, i) => {
                                 return <ECCard ec={employmentCondition} key={i} />
-                            })
-                            :
-                            <p>{t("homepage.emptylist")}</p>
-                        }
-                    </div>
+                            })}
+                        </div>
+                        :
+                        <p className="no-content">{t("homepage.emptylist")}</p>
+                    }
                 </div>
             </div>
         </div>
