@@ -15,6 +15,11 @@
         },
         "employmentconditions": {
             "description": "Curious about what employment conditions Capgemini offers?"
+        },
+        "internnetworks": {
+            "description": "Want to enjoy your job alongside your work? It's possible!",
+            "link": "View all intern networks",
+            "descriptionpage": "Want to enjoy your job alongside your work? It's possible! See all our internal networks here."
         }
     },
     "utils": {
@@ -22,7 +27,8 @@
         "department": "Department",
         "date": "Date",
         "salary": "Salary",
-        "employmenttype": "Employment type"
+        "employmenttype": "Employment type",
+        "focusarea": "Focus area"
     },
     "profilesearcher": {
         "pick": "Pick a profile from the searcher",

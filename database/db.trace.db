@@ -223,3 +223,9 @@ update vacancy set department=?,description=?,employment_type=?,image=?,location
 2025-12-10 15:09:12 jdbc[8]: exception
 org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(2000)": "U&'We are looking for a passionate and driven Full Stack Developer to join our g... (3625)"; SQL statement:
 update vacancy set department=?,description=?,employment_type=?,image=?,location=?,posted_date=?,salary=?,title=?,url=? where id=? [22001-214]
+2025-12-11 14:24:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "U&'At Capgemini, inclusion isn\\2019t just a slogan \\2014 it\\2019s a central part... (1932)"; SQL statement:
+update intern_network set description=?,focus_area=?,image=?,name=? where id=? [22001-214]
+2025-12-11 14:24:52 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "U&'At Capgemini, inclusion isn\\2019t just a slogan \\2014 it\\2019s a central part... (425)"; SQL statement:
+update intern_network set description=?,focus_area=?,image=?,name=? where id=? [22001-214]

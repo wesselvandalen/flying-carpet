@@ -1,16 +1,16 @@
 import { shortenText } from '../services/utils';
-import './vacancy_card.css';
+import './card.css';
 
 export default function VacancyCard({vacancy}) {
     return (
-        <div className="vacancy-card section-block">
-            <img src={vacancy.image} alt={vacancy.title} className="vacancy-image" />
-            <div className="vacancy-content">
-                <h2 className="vacancy-title">{vacancy.title}</h2>
-                <p className="vacancy-description">{shortenText(vacancy.description)}</p>
-                <div className="vacancy-details">
-                    <span className="vacancy-location">{vacancy.employmentType}, {vacancy.location}</span>
-                    <span className="vacancy-salary">{vacancy.salary}</span>
+        <div className="card section-block">
+            <img src={vacancy.image} alt={vacancy.title} className="card-image" />
+            <div className="card-content">
+                <h2 className="card-title">{vacancy.title}</h2>
+                <p className="card-description">{shortenText(vacancy.description)}</p>
+                <div className="card-details">
+                    <span className="card-atr">{vacancy.employmentType}, {vacancy.location}</span>
+                    <span className="card-atr">{vacancy.salary}</span>
                 </div>
             </div>
             <div className="card-button-container">

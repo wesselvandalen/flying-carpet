@@ -11,7 +11,7 @@ export default function EmploymentConditionsSection({ profile }) {
 
     useEffect(() => {
         if (profile !== undefined) {
-            setEmploymentConditions(profile.employmentconditions);
+            setEmploymentConditions(profile.employmentConditions);
         } else {
             fetchData();
         }
@@ -37,11 +37,9 @@ export default function EmploymentConditionsSection({ profile }) {
                 <div className="section-slider-container">
                     <div className="section-grid">
                         {employmentConditions.length > 0 ?
-                            <>
-                                {employmentConditions.map((employmentCondition, i) => {
-                                    return <ECCard ec={employmentCondition} key={i} />
-                                })}
-                            </>
+                            employmentConditions.map((employmentCondition, i) => {
+                                return <ECCard ec={employmentCondition} key={i} />
+                            })
                             :
                             <p>{t("homepage.emptylist")}</p>
                         }

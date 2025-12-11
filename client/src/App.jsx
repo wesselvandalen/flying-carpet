@@ -6,6 +6,8 @@ import Header from './components/header';
 import Footer from './components/footer';
 import VacanciesPage from './pages/vacancies_page';
 import VacancyPage from './pages/vacancy_page';
+import InternNetworksPage from './pages/intern_networks_page';
+import InternNetworkPage from './pages/intern_network_page';
 
 export default function App() {
   return (
@@ -17,6 +19,8 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/vacancies" element={<VacanciesPage />} />
             <Route path="/vacancies/:vacancy_id" element={<VacancyPage />} />
+            <Route path="/internnetworks" element={<InternNetworksPage />} />
+            <Route path="/internnetworks/:internnetwork_id" element={<InternNetworkPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>

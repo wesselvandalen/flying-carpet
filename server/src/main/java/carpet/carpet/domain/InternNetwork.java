@@ -1,5 +1,6 @@
 package carpet.carpet.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,8 +13,10 @@ public class InternNetwork {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Column(length = 2000)
     private String description;
     private String image;
+    @Column(length = 500)
     private String focusArea;
 
     // Default empty constructur for Spring.
