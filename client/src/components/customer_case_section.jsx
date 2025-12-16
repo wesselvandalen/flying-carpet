@@ -1,27 +1,52 @@
 import { useTranslation } from "react-i18next";
-import INCard from "./in_card";
-import './sections.css';
-import { useEffect, useState } from "react";
-import {customerCaseService} from "../services/customer_case_service";
-import { getRandomObjects } from "../services/utils";
+import "./sections.css";
+import { useEffect, useState, useMemo } from "react";
+import { customerCaseService } from "../services/customer_case_service";
 import CCcard from "./cc_card";
+import { getRandomObjects } from "../services/utils";
 
 export default function CustomerCaseSection({ profile }) {
     const { t } = useTranslation("global");
     const [customerCases, setCustomerCases] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (profile !== undefined) {
+        if (profile?.customerCases) {
             setCustomerCases(profile.customerCases);
-        } else {
-            fetchData();
+            setLoading(false);
         }
     }, [profile]);
 
-    const fetchData = async () => {
-        const all = await customerCaseService.getAll();
-        setCustomerCases(all);
-    };
+    useEffect(() => {
+        if (profile) return;
+
+        let cancelled = false;
+
+        async function fetchData() {
+            try {
+                const all = await customerCaseService.getAll();
+                if (!cancelled) {
+                    setCustomerCases(all);
+                }
+            } catch (e) {
+                console.error(e);
+            } finally {
+                if (!cancelled) {
+                    setLoading(false);
+                }
+            }
+        }
+
+        fetchData();
+
+        return () => {
+            cancelled = true;
+        };
+    }, [profile]);
+
+    const randomCustomerCases = useMemo(() => {
+        return getRandomObjects(customerCases);
+    }, [customerCases]);
 
     return (
         <div className="section-container" id="customercases">
@@ -36,13 +61,18 @@ export default function CustomerCaseSection({ profile }) {
 
                 <div className="section-slider-container">
                     <div className="section-slider">
-                        {customerCases.length > 0 ?
-                            getRandomObjects(customerCases).map((customerCase, i) => (
-                                <CCcard customerCase={customerCase} key={i} />
+                        {loading ? (
+                            <p>{t("homepage.loading")}</p>
+                        ) : randomCustomerCases.length > 0 ? (
+                            randomCustomerCases.map(cc => (
+                                <CCcard
+                                    key={cc.id}
+                                    customerCase={cc}
+                                />
                             ))
-                        :
+                        ) : (
                             <p>{t("homepage.emptylist")}</p>
-                        }
+                        )}
                     </div>
                 </div>
             </div>

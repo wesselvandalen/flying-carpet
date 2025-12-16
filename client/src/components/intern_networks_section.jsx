@@ -1,26 +1,52 @@
 import { useTranslation } from "react-i18next";
 import INCard from "./in_card";
-import './sections.css';
-import { useEffect, useState } from "react";
-import {internNetworkService} from "../services/intern_networks_service";
+import "./sections.css";
+import { useEffect, useState, useMemo } from "react";
+import { internNetworkService } from "../services/intern_networks_service";
 import { getRandomObjects } from "../services/utils";
 
 export default function InternNetworkSection({ profile }) {
     const { t } = useTranslation("global");
     const [internNetworks, setInternNetworks] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (profile !== undefined) {
+        if (profile?.internNetworks) {
             setInternNetworks(profile.internNetworks);
-        } else {
-            fetchData();
+            setLoading(false);
         }
     }, [profile]);
 
-    const fetchData = async () => {
-        const all = await internNetworkService.getAll();
-        setInternNetworks(all);
-    };
+    useEffect(() => {
+        if (profile) return;
+
+        let cancelled = false;
+
+        async function fetchData() {
+            try {
+                const all = await internNetworkService.getAll();
+                if (!cancelled) {
+                    setInternNetworks(all);
+                }
+            } catch (e) {
+                console.error(e);
+            } finally {
+                if (!cancelled) {
+                    setLoading(false);
+                }
+            }
+        }
+
+        fetchData();
+
+        return () => {
+            cancelled = true;
+        };
+    }, [profile]);
+
+    const randomInternNetworks = useMemo(() => {
+        return getRandomObjects(internNetworks);
+    }, [internNetworks]);
 
     return (
         <div className="section-container" id="internnetworks">
@@ -35,13 +61,18 @@ export default function InternNetworkSection({ profile }) {
 
                 <div className="section-slider-container">
                     <div className="section-slider">
-                        {internNetworks.length > 0 ?
-                            getRandomObjects(internNetworks).map((internNetwork, i) => (
-                                <INCard internNetwork={internNetwork} key={i} />
+                        {loading ? (
+                            <p>{t("homepage.loading")}</p>
+                        ) : randomInternNetworks.length > 0 ? (
+                            randomInternNetworks.map(internNetwork => (
+                                <INCard
+                                    key={internNetwork.id}
+                                    internNetwork={internNetwork}
+                                />
                             ))
-                        :
+                        ) : (
                             <p>{t("homepage.emptylist")}</p>
-                        }
+                        )}
                     </div>
                 </div>
             </div>

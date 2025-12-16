@@ -1,27 +1,52 @@
 import { useTranslation } from "react-i18next";
-import INCard from "./in_card";
-import './sections.css';
-import { useEffect, useState } from "react";
-import {eventsService} from "../services/events_service";
-import { getRandomObjects } from "../services/utils";
+import "./sections.css";
+import { useEffect, useState, useMemo } from "react";
+import { eventsService } from "../services/events_service";
 import EventCard from "./event_card";
+import { getRandomObjects } from "../services/utils";
 
 export default function EventsSection({ profile }) {
     const { t } = useTranslation("global");
     const [events, setEvents] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (profile !== undefined) {
+        if (profile?.events) {
             setEvents(profile.events);
-        } else {
-            fetchData();
+            setLoading(false);
         }
     }, [profile]);
 
-    const fetchData = async () => {
-        const all = await eventsService.getAll();
-        setEvents(all);
-    };
+    useEffect(() => {
+        if (profile) return;
+
+        let cancelled = false;
+
+        async function fetchData() {
+            try {
+                const all = await eventsService.getAll();
+                if (!cancelled) {
+                    setEvents(all);
+                }
+            } catch (e) {
+                console.error(e);
+            } finally {
+                if (!cancelled) {
+                    setLoading(false);
+                }
+            }
+        }
+
+        fetchData();
+
+        return () => {
+            cancelled = true;
+        };
+    }, [profile]);
+
+    const randomEvents = useMemo(() => {
+        return getRandomObjects(events);
+    }, [events]);
 
     return (
         <div className="section-container" id="events">
@@ -36,13 +61,18 @@ export default function EventsSection({ profile }) {
 
                 <div className="section-slider-container">
                     <div className="section-slider">
-                        {events.length > 0 ?
-                            getRandomObjects(events).map((event, i) => (
-                                <EventCard event={event} key={i} />
+                        {loading ? (
+                            <p>{t("homepage.loading")}</p>
+                        ) : randomEvents.length > 0 ? (
+                            randomEvents.map(event => (
+                                <EventCard
+                                    key={event.id}
+                                    event={event}
+                                />
                             ))
-                        :
+                        ) : (
                             <p>{t("homepage.emptylist")}</p>
-                        }
+                        )}
                     </div>
                 </div>
             </div>
