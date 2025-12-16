@@ -6,6 +6,7 @@ import InternNetworkSection from "../components/intern_networks_section";
 import ProfileSearcher from "../components/profile_searcher";
 import {profileService} from "../services/profile_service";
 import EmploymentConditionsSection from "../components/employment_conditions_section";
+import CustomerCaseSection from "../components/customer_case_section";
 
 export default function HomePage() {
     const [showProfileSearcher, setShowProfileSearcher] = useState(sessionStorage.getItem("close-ps") !== "true");
@@ -40,6 +41,7 @@ export default function HomePage() {
             <VacancySection profile={profile} />
             <EmploymentConditionsSection profile={profile} />
             <InternNetworkSection profile={profile} />
+            <CustomerCaseSection profile={profile} />
         </div>
     );
 }

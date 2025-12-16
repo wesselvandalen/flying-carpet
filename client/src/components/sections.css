@@ -37,6 +37,7 @@
 .section-slider-container {
     margin-top: 30px;
     margin-bottom: -5px;
+    padding-inline: 20px;
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -84,4 +85,30 @@
     scroll-snap-align: start;
     width: 600px;
     user-select: none;
+}
+
+@media screen and (max-width: 1450px) {
+    .section-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .section-title {
+        padding-inline: 20px;
+    }
+
+    .section-description {
+        padding-inline: 20px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .section-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .section-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

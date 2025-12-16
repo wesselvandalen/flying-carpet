@@ -39,7 +39,7 @@ export default function Header() {
                     <a href="/customercases">{t("header.customercases")}</a>
                     <a href="/events">{t("header.events")}</a>
                     <a href="/internnetworks">{t("header.internnetworks")}</a>
-                    <a href="/employmentconditions">{t("header.employmentconditions")}</a>
+                    <a href="#employmentconditions">{t("header.employmentconditions")}</a>
                     <a href="/employeestories">{t("header.employeestories")}</a>
                 </nav>
 

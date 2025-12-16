@@ -8,6 +8,8 @@ import VacanciesPage from './pages/vacancies_page';
 import VacancyPage from './pages/vacancy_page';
 import InternNetworksPage from './pages/intern_networks_page';
 import InternNetworkPage from './pages/intern_network_page';
+import CustomerCasesPage from './pages/customer_cases_page';
+import CustomerCasePage from './pages/customer_case_page';
 
 export default function App() {
   return (
@@ -21,6 +23,8 @@ export default function App() {
             <Route path="/vacancies/:vacancy_id" element={<VacancyPage />} />
             <Route path="/internnetworks" element={<InternNetworksPage />} />
             <Route path="/internnetworks/:internnetwork_id" element={<InternNetworkPage />} />
+            <Route path="/customercases" element={<CustomerCasesPage />} />
+            <Route path="/customercases/:customercase_id" element={<CustomerCasePage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>
