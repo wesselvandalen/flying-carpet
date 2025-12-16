@@ -12,6 +12,8 @@ import CustomerCasesPage from './pages/customer_cases_page';
 import CustomerCasePage from './pages/customer_case_page';
 import EventsPage from './pages/events_page';
 import EventPage from './pages/event_page';
+import EmployeeStoriesPage from './pages/employee_stories_page';
+import EmployeeStoryPage from './pages/employee_story_page';
 
 export default function App() {
   return (
@@ -29,6 +31,8 @@ export default function App() {
             <Route path="/customercases/:customercase_id" element={<CustomerCasePage />} />
             <Route path="/events" element={<EventsPage />} />
             <Route path="/events/:event_id" element={<EventPage />} />
+            <Route path="/employeestories" element={<EmployeeStoriesPage />} />
+            <Route path="/employeestories/:employeestory_id" element={<EmployeeStoryPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>

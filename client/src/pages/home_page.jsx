@@ -8,6 +8,7 @@ import {profileService} from "../services/profile_service";
 import EmploymentConditionsSection from "../components/employment_conditions_section";
 import CustomerCaseSection from "../components/customer_case_section";
 import EventsSection from "../components/events_section";
+import EmployeeStoriesSection from "../components/employee_stories_section";
 
 export default function HomePage() {
     const [showProfileSearcher, setShowProfileSearcher] = useState(sessionStorage.getItem("close-ps") !== "true");
@@ -44,6 +45,7 @@ export default function HomePage() {
             <InternNetworkSection profile={profile} />
             <CustomerCaseSection profile={profile} />
             <EventsSection profile={profile} />
+            <EmployeeStoriesSection profile={profile} />
         </div>
     );
 }
