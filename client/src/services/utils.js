@@ -18,7 +18,9 @@ export function shortenText(text, maxLength = 100, preserveWords = true) {
     return shortened + "...";
 }
 
-export function getRandomObjects(list) {
-  const shuffled = [...list].sort(() => Math.random() - .4);
-  return shuffled.slice(0, 4);
+export function getRandomObjects(list, count = 4) {
+  if (!Array.isArray(list)) return [];
+
+  const shuffled = [...list].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, Math.min(count, list.length));
 }

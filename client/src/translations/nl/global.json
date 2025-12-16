@@ -1,29 +1,63 @@
 {
     "header": {
         "vacancies": "Vacatures",
-        "customercases": "Klant cases",
+        "customercases": "Klantcases",
         "events": "Evenementen",
         "internnetworks": "Interne netwerken",
         "employmentconditions": "Arbeidsvoorwaarden",
-        "employeestories": "Medewerker verhalen"
+        "employeestories": "Medewerkerverhalen"
     },
     "sections": {
         "vacancies": {
             "description": "Geïnteresseerd in een baan bij Capgemini?",
             "link": "Bekijk alle vacatures",
-            "descriptionpage": "Geïnteresseerd in een baan bij Capgemini? Neem een kijkje hieronder bij al onze vacatures. "
+            "descriptionpage": "Geïnteresseerd in een baan bij Capgemini? Bekijk hieronder al onze vacatures."
         },
         "employmentconditions": {
-            "description": "Nieuwschierig naar welke arbeidsvoorwaarden er allemaal zijn bij Capgemini?"
+            "description": "Benieuwd naar welke arbeidsvoorwaarden Capgemini biedt?"
+        },
+        "internnetworks": {
+            "description": "Wil je naast je werk ook plezier hebben? Dat kan!",
+            "link": "Bekijk alle interne netwerken",
+            "descriptionpage": "Wil je naast je werk ook plezier hebben? Dat kan! Bekijk hier al onze interne netwerken."
+        },
+        "customercases": {
+            "description": "Benieuwd welke klantcases bij Capgemini zijn uitgevoerd?",
+            "link": "Bekijk alle klantcases",
+            "descriptionpage": "Benieuwd naar alle klantcases die Capgemini heeft uitgevoerd? Neem hier een kijkje."
+        },
+        "events": {
+            "description": "Nog meer interesse in Capgemini? Bezoek ons vaker! Je bent altijd welkom!",
+            "link": "Bekijk alle evenementen",
+            "descriptionpage": "Kun je geen genoeg krijgen van Capgemini? Wij ook niet! Bekijk hier al onze evenementen."
+        },
+        "employeestories": {
+            "description": "Benieuwd wat onze stagiairs en medewerkers van ons vinden?",
+            "link": "Bekijk alle medewerkerverhalen",
+            "descriptionpage": "Lees de verhalen van onze stagiairs en medewerkers en krijg een beter beeld van hun ervaringen."
         }
     },
+    "utils": {
+        "location": "Locatie",
+        "department": "Afdeling",
+        "date": "Datum",
+        "salary": "Salaris",
+        "employmenttype": "Dienstverband",
+        "focusarea": "Focusgebied",
+        "salarynote": "Dit salaris is een schatting. Het is niet gegarandeerd dat je dit ontvangt zodra je in dienst treedt.",
+        "clientname": "Klantnaam"
+    },
+    "profilesearcher": {
+        "pick": "Kies een profiel uit de zoekfunctie",
+        "search": "Zoek profiel"
+    },
     "homepage": {
-        "description": "Neem de volgende stap voor jouw carriere bij Capgemini.",
-        "cta": "Neem een kijkje bij onze ",
-        "emptylist": "Er is geen inhoud hier om te tonen"
+        "description": "Zet de volgende stap in je carrière bij Capgemini.",
+        "cta": "Bekijk onze ",
+        "emptylist": "Er is geen content om hier weer te geven"
     },
     "notfound": {
-        "description": "Deze pagina is nergens te vinden..."
+        "description": "Deze pagina kan niet worden gevonden..."
     },
     "footer": {
         "followus": "Volg ons",

@@ -36,11 +36,11 @@ export default function Header() {
 
                 <nav className="nav-links">
                     <a href="/vacancies">{t("header.vacancies")}</a>
+                    <a href="/employeestories">{t("header.employeestories")}</a>
+                    <a href="#employmentconditions">{t("header.employmentconditions")}</a>
+                    <a href="/internnetworks">{t("header.internnetworks")}</a>
                     <a href="/customercases">{t("header.customercases")}</a>
                     <a href="/events">{t("header.events")}</a>
-                    <a href="/internnetworks">{t("header.internnetworks")}</a>
-                    <a href="#employmentconditions">{t("header.employmentconditions")}</a>
-                    <a href="/employeestories">{t("header.employeestories")}</a>
                 </nav>
 
             </div>

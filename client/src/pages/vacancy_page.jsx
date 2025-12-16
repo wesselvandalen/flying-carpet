@@ -29,10 +29,11 @@ export default function VacancyPage() {
 
                 <span>{t("utils.employmenttype")}: {vacancy.employmentType}</span>
                 <span>{t("utils.date")}: {vacancy.postedDate}</span>
-                <span>{t("utils.salary")}: {vacancy.salary}</span>
+                <span>{t("utils.salary")}: € {vacancy.salary},-*</span>
                 <span>{t("utils.location")}: {vacancy.location}</span>
                 <span>{t("utils.department")}: {vacancy.department}</span>
 
+                <span className="note">*{t("utils.salarynote")}</span>
                 <div className="line"/>
 
                 <p>{vacancy.description}</p>

@@ -1,31 +1,58 @@
 import { useTranslation } from "react-i18next";
 import VacancyCard from "./vacancy_card";
-import './sections.css';
+import "./sections.css";
 import { useEffect, useState, useMemo } from "react";
-import {vacancyService} from "../services/vacancy_service";
+import { vacancyService } from "../services/vacancy_service";
 import { getRandomObjects } from "../services/utils";
 
 export default function VacancySection({ profile }) {
     const { t } = useTranslation("global");
     const [vacancies, setVacancies] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (profile !== undefined) {
+        if (profile?.vacancies) {
             setVacancies(profile.vacancies);
-        } else {
-            fetchData();
+            setLoading(false);
         }
     }, [profile]);
 
-    const fetchData = async () => {
-        const all = await vacancyService.getAll();
-        setVacancies(all);
-    };
+    useEffect(() => {
+        if (profile) return;
+
+        let cancelled = false;
+
+        async function fetchData() {
+            try {
+                const all = await vacancyService.getAll();
+                if (!cancelled) {
+                    setVacancies(all);
+                }
+            } catch (e) {
+                console.error(e);
+            } finally {
+                if (!cancelled) {
+                    setLoading(false);
+                }
+            }
+        }
+
+        fetchData();
+
+        return () => {
+            cancelled = true;
+        };
+    }, [profile]);
+
+    const randomVacancies = useMemo(() => {
+        return getRandomObjects(vacancies);
+    }, [vacancies]);
 
     return (
         <div className="section-container" id="vacancies">
             <div className="section-content">
                 <h3 className="section-title">{t("header.vacancies")}</h3>
+
                 <p className="section-description">
                     {t("sections.vacancies.description")}{" "}
                     <a href="/vacancies">
@@ -35,13 +62,18 @@ export default function VacancySection({ profile }) {
 
                 <div className="section-slider-container">
                     <div className="section-slider">
-                        {vacancies.length > 0 ?
-                            getRandomObjects(vacancies).map((vacancy, i) => (
-                                <VacancyCard vacancy={vacancy} key={i} />
+                        {loading ? (
+                            <p>{t("homepage.loading")}</p>
+                        ) : randomVacancies.length > 0 ? (
+                            randomVacancies.map(vacancy => (
+                                <VacancyCard
+                                    key={vacancy.id}
+                                    vacancy={vacancy}
+                                />
                             ))
-                        :
+                        ) : (
                             <p>{t("homepage.emptylist")}</p>
-                        }
+                        )}
                     </div>
                 </div>
             </div>

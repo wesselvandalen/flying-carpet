@@ -20,6 +20,21 @@
             "description": "Want to enjoy your job alongside your work? It's possible!",
             "link": "View all intern networks",
             "descriptionpage": "Want to enjoy your job alongside your work? It's possible! See all our internal networks here."
+        },
+        "customercases": {
+            "description": "Curious about which customer cases have been completed at Capgemini?",
+            "link": "View all customer cases",
+            "descriptionpage": "Curious about all the client cases Capgemini has completed? Take a look here."
+        },
+        "events": {
+            "description": "Interested in Capgemini even more? Visit us more often! You're always welcome!",
+            "link": "View all events",
+            "descriptionpage": "Can't get enough of Capgemini? Neither can we! See all our events here."
+        },
+        "employeestories": {
+            "description": "Curious about what our interns and employees think of us?",
+            "link": "View all employee stories",
+            "descriptionpage": "Hear the stories of our interns and employees and get a better understanding of their experiences."
         }
     },
     "utils": {
@@ -28,7 +43,9 @@
         "date": "Date",
         "salary": "Salary",
         "employmenttype": "Employment type",
-        "focusarea": "Focus area"
+        "focusarea": "Focus area",
+        "salarynote": "This salary is estimated. It is not garuanted that you’ll get this once you join.",
+        "clientname": "Client name"
     },
     "profilesearcher": {
         "pick": "Pick a profile from the searcher",
