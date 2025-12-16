@@ -10,6 +10,8 @@ import InternNetworksPage from './pages/intern_networks_page';
 import InternNetworkPage from './pages/intern_network_page';
 import CustomerCasesPage from './pages/customer_cases_page';
 import CustomerCasePage from './pages/customer_case_page';
+import EventsPage from './pages/events_page';
+import EventPage from './pages/event_page';
 
 export default function App() {
   return (
@@ -25,6 +27,8 @@ export default function App() {
             <Route path="/internnetworks/:internnetwork_id" element={<InternNetworkPage />} />
             <Route path="/customercases" element={<CustomerCasesPage />} />
             <Route path="/customercases/:customercase_id" element={<CustomerCasePage />} />
+            <Route path="/events" element={<EventsPage />} />
+            <Route path="/events/:event_id" element={<EventPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>
