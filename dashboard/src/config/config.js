@@ -139,12 +139,11 @@ export const departments = [
 
 export const employmentConditions = [
     "Competitive Salary",
-    "Mobility Budget",
-    "Hybrid Working",
+    "Work balance",
+    "Company culture",
     "Training & Development",
-    "Vacation Days",
-    "Pension Plan",
-    "Work Equipment",
+    "Modern technology",
+    "Climate friendly",
     "International Culture"
 ];
 
