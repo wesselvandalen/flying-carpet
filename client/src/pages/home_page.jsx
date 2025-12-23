@@ -42,9 +42,9 @@ export default function HomePage() {
             )}
             <VacancySection profile={profile} />
             <EmployeeStoriesSection profile={profile} />
+            <CustomerCaseSection profile={profile} />
             <EmploymentConditionsSection profile={profile} />
             <InternNetworkSection profile={profile} />
-            <CustomerCaseSection profile={profile} />
             <EventsSection profile={profile} />
         </div>
     );

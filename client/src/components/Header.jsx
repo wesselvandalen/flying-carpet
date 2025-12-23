@@ -1,23 +1,27 @@
 import "./header.css";
 import capgemini_logo_white from "../assets/capgemini_logo_white.png";
-import { useTranslation } from 'react-i18next';
-import nlFlag from '../assets/flags/nl.png';
-import enFlag from '../assets/flags/en.png';
-import './language_menu.css';
+import { useTranslation } from "react-i18next";
+import nlFlag from "../assets/flags/nl.png";
+import enFlag from "../assets/flags/en.png";
+import "./language_menu.css";
+import { useState } from "react";
 
 export default function Header() {
     const { t, i18n } = useTranslation("global");
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const handleLanguageSwitch = (lang) => {
         i18n.changeLanguage(lang);
         document.documentElement.lang = lang;
-        localStorage.setItem('lang', lang);
+        localStorage.setItem("lang", lang);
     };
 
     const handleLangFlag = (lang) => {
         switch (lang) {
-            case 'nl': return nlFlag;
-            default: return enFlag;
+            case "nl":
+                return nlFlag;
+            default:
+                return enFlag;
         }
     };
 
@@ -27,26 +31,23 @@ export default function Header() {
 
     return (
         <header className="header">
-
             <div className="header-left">
-
                 <a href="/" className="logo">
                     <img src={capgemini_logo_white} alt="The logo of Capgemini." />
                 </a>
 
+                {/* Desktop nav */}
                 <nav className="nav-links">
                     <a href="/vacancies">{t("header.vacancies")}</a>
                     <a href="/employeestories">{t("header.employeestories")}</a>
+                    <a href="/customercases">{t("header.customercases")}</a>
                     <a href="#employmentconditions">{t("header.employmentconditions")}</a>
                     <a href="/internnetworks">{t("header.internnetworks")}</a>
-                    <a href="/customercases">{t("header.customercases")}</a>
                     <a href="/events">{t("header.events")}</a>
                 </nav>
-
             </div>
 
             <div className="header-right">
-
                 <div className="language-menu nav-item">
                     <img
                         src={handleLangFlag(i18n.language)}
@@ -58,14 +59,34 @@ export default function Header() {
                         onChange={handleLanguageChange}
                         aria-label="Select language"
                         className="language-select"
-                        id='language-select'
+                        id="language-select"
                     >
                         <option value="nl">Nederlands</option>
                         <option value="en">English</option>
                     </select>
                 </div>
 
+                {/* Hamburger button */}
+                <button
+                    className={`hamburger ${menuOpen ? "open" : ""}`}
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    aria-label="Toggle menu"
+                >
+                    <span />
+                    <span />
+                    <span />
+                </button>
             </div>
+
+            {/* Mobile menu */}
+            <nav className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+                <a href="/vacancies" onClick={() => setMenuOpen(false)}>{t("header.vacancies")}</a>
+                <a href="/employeestories" onClick={() => setMenuOpen(false)}>{t("header.employeestories")}</a>
+                <a href="/customercases" onClick={() => setMenuOpen(false)}>{t("header.customercases")}</a>
+                <a href="#employmentconditions" onClick={() => setMenuOpen(false)}>{t("header.employmentconditions")}</a>
+                <a href="/internnetworks" onClick={() => setMenuOpen(false)}>{t("header.internnetworks")}</a>
+                <a href="/events" onClick={() => setMenuOpen(false)}>{t("header.events")}</a>
+            </nav>
         </header>
     );
 }
