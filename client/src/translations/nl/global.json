@@ -40,7 +40,7 @@
     "utils": {
         "location": "Locatie",
         "department": "Afdeling",
-        "date": "Datum",
+        "date": "Datum geplaatst",
         "salary": "Salaris",
         "employmenttype": "Dienstverband",
         "focusarea": "Focusgebied",

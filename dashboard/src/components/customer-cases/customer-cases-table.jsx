@@ -41,7 +41,7 @@ export default function CustomerCasesTable({ items }) {
                                 {handleLongNames(item.description)}
                             </td>
                             <td className="px-6 py-4">
-                                {item.image}
+                                {handleLongNames(item.image)}
                             </td>
                             <td className="px-6 py-4">
                                 {item.sector}

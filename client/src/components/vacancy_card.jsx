@@ -4,7 +4,7 @@ import './card.css';
 export default function VacancyCard({vacancy}) {
     return (
         <div className="card section-block">
-            <img src={vacancy.image} alt={vacancy.title} className="card-image" />
+            <img src={vacancy.image} alt={`Image of ${vacancy.title}`} className="card-image" />
             <div className="card-content">
                 <h2 className="card-title">{vacancy.title}</h2>
                 <p className="card-description">{shortenText(vacancy.description)}</p>

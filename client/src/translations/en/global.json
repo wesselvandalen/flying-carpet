@@ -40,7 +40,7 @@
     "utils": {
         "location": "Location",
         "department": "Department",
-        "date": "Date",
+        "date": "Posted date",
         "salary": "Salary",
         "employmenttype": "Employment type",
         "focusarea": "Focus area",

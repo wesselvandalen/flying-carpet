@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./profile_searcher.css";
-import {profileService} from "../services/profile_service";
+import { profileService } from "../services/profile_service";
 import { useTranslation } from "react-i18next";
 
 export default function ProfileSearcher({ triggerHide, onSelectProfile }) {
@@ -51,13 +51,19 @@ export default function ProfileSearcher({ triggerHide, onSelectProfile }) {
     return (
         <div className="profile-searcher">
             <div className="profile-left">
+                <label htmlFor="profile-select" className="sr-only">
+                    Select profile
+                </label>
+
                 <select
+                    id="profile-select"
+                    name="profile-select-box"
                     value={selected}
                     onChange={(e) => setSelected(e.target.value)}
                     className="ps-dropdown"
                 >
-                    {profiles.map((profile, index) => (
-                        <option key={index} value={profile.id}>
+                    {profiles.map((profile) => (
+                        <option key={profile.id} value={profile.id}>
                             {profile.name}
                         </option>
                     ))}

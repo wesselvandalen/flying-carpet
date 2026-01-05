@@ -229,3 +229,6 @@ update intern_network set description=?,focus_area=?,image=?,name=? where id=? [
 2025-12-11 14:24:52 jdbc[4]: exception
 org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "U&'At Capgemini, inclusion isn\\2019t just a slogan \\2014 it\\2019s a central part... (425)"; SQL statement:
 update intern_network set description=?,focus_area=?,image=?,name=? where id=? [22001-214]
+2025-12-30 12:24:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "U&'Capgemini partnered with Toyota to support finance transformation initiatives... (1298)"; SQL statement:
+insert into customer_case (client_name,description,image,sector,title,id) values (?,?,?,?,?,default) [22001-214]

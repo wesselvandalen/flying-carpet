@@ -25,7 +25,6 @@
 .card-content {
   padding: 15px;
   flex-grow: 1;
-  /* allow middle section to fill available space */
 }
 
 .card-title {
@@ -46,7 +45,7 @@
   flex-direction: column;
   gap: 5px;
   font-size: 0.9rem;
-  color: #777;
+  color: #555555;
 }
 
 .card-details span {

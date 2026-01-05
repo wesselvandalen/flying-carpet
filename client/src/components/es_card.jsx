@@ -3,7 +3,7 @@ import { shortenText } from "../services/utils";
 export default function ESCard({ employeeStory }) {
     return (
         <div className="card section-block">
-            <img src={employeeStory.image} alt={employeeStory.title} className="card-image" />
+            <img src={employeeStory.image} alt={`Image of ${employeeStory.quote}`} className="card-image" />
             <div className="card-content">
                 <h2 className="card-title">"{employeeStory.quote}"</h2>
                 <div className="card-details">

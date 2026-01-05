@@ -3,7 +3,7 @@ import { shortenText } from "../services/utils";
 export default function CCcard({ customerCase }) {
     return (
         <div className="card section-block">
-            <img src={customerCase.image} alt={customerCase.title} className="card-image" />
+            <img src={customerCase.image} alt={`Image of ${customerCase.title}`} className="card-image" />
             <div className="card-content">
                 <h2 className="card-title">{customerCase.title} ({customerCase.clientName})</h2>
                 <p className="card-description">{shortenText(customerCase.description)}</p>

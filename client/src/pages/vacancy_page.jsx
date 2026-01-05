@@ -28,7 +28,7 @@ export default function VacancyPage() {
                 <h3>{vacancy.title}</h3>
 
                 <span>{t("utils.employmenttype")}: {vacancy.employmentType}</span>
-                <span>{t("utils.date")}: {vacancy.postedDate}</span>
+                <span>{t("utils.date")}: {new Date(vacancy.postedDate).toDateString()}</span>
                 <span>{t("utils.salary")}: € {vacancy.salary},-*</span>
                 <span>{t("utils.location")}: {vacancy.location}</span>
                 <span>{t("utils.department")}: {vacancy.department}</span>

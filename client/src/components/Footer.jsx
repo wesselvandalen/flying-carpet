@@ -19,27 +19,27 @@ export default function Footer() {
                 <div className="footer-section">
                     <h4>{t("footer.followus")}</h4>
                     <ul>
-                        <a href='https://x.com/Capgemini' target='_blank'>X</a>
-                        <a href='https://www.facebook.com/capgemininederland/' >Facebook</a>
-                        <a href='https://www.instagram.com/capgemini/' >Instagram</a>
+                        <li><a href='https://x.com/Capgemini' target='_blank'>X</a></li>
+                        <li><a href='https://www.facebook.com/capgemininederland/' >Facebook</a></li>
+                        <li><a href='https://www.instagram.com/capgemini/' >Instagram</a></li>
                     </ul>
                 </div>
 
                 <div className="footer-section">
                     <h4>{t("footer.pages")}</h4>
                     <ul>
-                        <a href='/vacancies'>{t("header.vacancies")}</a>
-                        <a href='/events'>{t("header.events")}</a>
-                        <a href='/customercases'>{t("header.customercases")}</a>
+                        <li><a href='/vacancies'>{t("header.vacancies")}</a></li>
+                        <li><a href='/events'>{t("header.events")}</a></li>
+                        <li><a href='/customercases'>{t("header.customercases")}</a></li>
                     </ul>
                 </div>
 
                 <div className="footer-section">
                     <h4>&nbsp;</h4>
                     <ul>
-                        <a href='/internnetworks'>{t("header.internnetworks")}</a>
-                        <a href='#employmentconditions'>{t("header.employmentconditions")}</a>
-                        <a href='/employeestories'>{t("header.employeestories")}</a>
+                        <li><a href='/internnetworks'>{t("header.internnetworks")}</a></li>
+                        <li><a href='#employmentconditions'>{t("header.employmentconditions")}</a></li>
+                        <li><a href='/employeestories'>{t("header.employeestories")}</a></li>
                     </ul>
                 </div>
 
