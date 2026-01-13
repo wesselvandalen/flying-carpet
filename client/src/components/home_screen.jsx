@@ -21,11 +21,13 @@ export default function HomeScreen() {
       <div className="hero-overlay"></div>
 
       <div className="hero-content">
-        <h1>Get the future you want</h1>
-        <p>{t("homepage.description")}</p>
-        <a href={`#${contents[randomIndex]}`}>{t("homepage.cta")} {t(`header.${contents[randomIndex]}`).toLowerCase()}{">"}</a>
+        <h1 id="title" class="fade-stagger">Get the future you want</h1>
+        <p id="desc" class="fade-stagger">{t("homepage.description")}</p>
+        <a id="link" class="fade-stagger" href={`#${contents[randomIndex]}`}>
+          {t("homepage.cta")} {t(`header.${contents[randomIndex]}`).toLowerCase()}{">"}
+        </a>
       </div>
-      
+
     </div>
   );
 }

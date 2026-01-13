@@ -64,6 +64,29 @@
   color: #074dda;
 }
 
+.fade-stagger {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+#title.fade-stagger {
+  animation-delay: 120ms;
+}
+#desc.fade-stagger {
+  animation-delay: 240ms;
+}
+#link.fade-stagger {
+  animation-delay: 360ms;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
 @media (max-width: 768px) {
   .hero-content h1 {
     font-size: 2.5rem;
