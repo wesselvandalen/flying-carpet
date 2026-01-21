@@ -1,0 +1,16 @@
+stages:
+  - test
+
+wcag_check:
+  stage: test
+  image: node:18
+  before_script:
+    - npm i
+    - chmod +x scripts/run-axe.sh
+  script:
+    - ./scripts/run-axe.sh
+  artifacts:
+    when: always
+    paths:
+      - result.json
+    expire_in: 1 week
